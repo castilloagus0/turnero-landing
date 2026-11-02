@@ -1,0 +1,6 @@
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+@keyframes float { 50% { transform: translateY(-12px) rotate(2deg); } }
+@keyframes orbit { to { transform: rotate(360deg); } }

@@ -1,0 +1,5 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+const steps=[['01','Configurá tu negocio.','Definí servicios, profesionales y horarios disponibles.'],['02','Compartí tu agenda.','Ofrecé un enlace para que tus clientes puedan reservar online.'],['03','Gestioná todo desde un lugar.','Organizá las reservas, enviá recordatorios y consultá la actividad de tu negocio.']];
+---
+<section class="section steps" id="como-funciona"><div class="container"><div class="steps-head"><SectionEyebrow>Cómo funciona</SectionEyebrow><h2 class="display steps-title">Empezar es más simple de lo que imaginás.</h2></div><div class="steps-track">{steps.map(([number,title,text]) => <article class="step" data-step><div class="step-copy"><p class="eyebrow">Paso {number}</p><h3>{title}</h3><p>{text}</p></div><span class="step-number">{number}</span><div class="step-visual" aria-hidden="true"></div></article>)}</div></div></section>

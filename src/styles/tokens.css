@@ -1,0 +1,16 @@
+:root {
+  --ink: #121923;
+  --paper: #f8f6f0;
+  --cobalt: #4f63ff;
+  --lime: #d7f36b;
+  --ice: #dde6f2;
+  --muted: #6e7684;
+  --line: color-mix(in srgb, var(--ink) 16%, transparent);
+  --display: 'Instrument Serif', Georgia, serif;
+  --sans: 'Manrope', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --container: min(1280px, calc(100vw - 96px));
+  --radius: 18px;
+}
+
+@media (max-width: 700px) { :root { --container: min(100% - 40px, 1280px); } }
