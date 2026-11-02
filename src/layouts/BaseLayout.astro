@@ -5,22 +5,4 @@ import Footer from '../components/layout/Footer.astro';
 interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 ---
-<!doctype html><html lang="es-AR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content={description}/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><title>{title}</title></head><body><Header/><main><slot/></main><Footer/><script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-  import Lenis from 'lenis';
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const header = document.querySelector<HTMLElement>('[data-header]');
-  window.addEventListener('scroll', () => header?.classList.toggle('is-scrolled', window.scrollY > 24), { passive: true });
-  if (!reduced) {
-    gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ smoothWheel: true, lerp: .09 });
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000)); gsap.ticker.lagSmoothing(0);
-    gsap.from('.hero-copy > *', { y: 28, opacity: 0, duration: .85, stagger: .11, delay: .16, ease: 'power3.out' });
-    gsap.from('.hero-visual', { y: 38, opacity: 0, scale: .94, duration: 1.15, delay: .25, ease: 'power3.out' });
-    document.querySelectorAll<HTMLElement>('.industries-title,.manifesto-title,.steps-title,.demo-title').forEach((element) => gsap.from(element, { scrollTrigger: { trigger: element, start: 'top 82%' }, y: 38, opacity: 0, duration: .85, ease: 'power3.out' }));
-    document.querySelectorAll<HTMLElement>('[data-step]').forEach((element) => gsap.from(element, { scrollTrigger: { trigger: element, start: 'top 83%' }, y: 24, opacity: 0, duration: .62, ease: 'power2.out' }));
-    const line = document.querySelector<HTMLElement>('[data-line]'); if (line) gsap.from(line, { scrollTrigger: { trigger: line, start: 'top 85%' }, scaleX: 0, duration: 1.1, ease: 'power2.out' });
-  }
-</script></body></html>
+<!doctype html><html lang="es-AR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="description" content={description}/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:type" content="website"/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><title>{title}</title></head><body><Header/><main><slot/></main><Footer/><script>import { initMotion } from '../scripts/motion'; initMotion();</script></body></html>

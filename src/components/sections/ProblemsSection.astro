@@ -1,0 +1,10 @@
+---
+import SectionEyebrow from '../ui/SectionEyebrow.astro';
+const problems = [
+  ['01', 'Mensajes sin responder', 'La consulta queda escondida entre chats y la reserva nunca se confirma.'],
+  ['02', 'Turnos superpuestos', 'Dos personas para el mismo horario, o un día que se desarma por completo.'],
+  ['03', 'Ausencias inesperadas', 'Un turno que no se recuerda a tiempo se transforma en un espacio vacío.'],
+  ['04', 'Agenda sin control', 'Información repartida que hace más difícil entender cómo está el negocio.'],
+];
+---
+<section class="section problems" id="problemas"><div class="container"><div class="problems-head"><SectionEyebrow>El problema no es trabajar mucho</SectionEyebrow><h2 class="display problems-title" data-split>Es perder tiempo<br/>organizándolo todo.</h2></div><div class="problems-list" data-reveal>{problems.map(([number, title, text]) => <article class="problem"><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section>

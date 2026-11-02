@@ -5,7 +5,7 @@ Landing editorial para Ordina, una plataforma de gestión de turnos, clientes y 
 ## Tecnologías
 
 - Astro 7 + Tailwind CSS 4
-- React Islands (`MobileMenu`, `IndustriesCarousel`, `FeatureTabs`, `DemoForm`)
+- React Islands (`IndustriesCarousel`, `FeatureTabs`, `DemoForm`)
 - GSAP + ScrollTrigger y Lenis
 - Swiper y Lucide
 
@@ -22,4 +22,6 @@ pnpm build
 ## Formulario de demo
 
 El formulario valida los datos en el navegador, pero no realiza un envío ficticio. Para habilitarlo hay que conectar `src/components/islands/DemoForm.tsx` a un endpoint seguro (por ejemplo, una Astro Action, endpoint API o CRM) y manejar desde allí el estado de éxito/error real.
+
+La ruta `/privacidad` es un borrador visual: debe completarse con la información legal y los canales de contacto definitivos antes de publicar.
 # turnero-landing
