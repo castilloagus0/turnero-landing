@@ -132,6 +132,14 @@ export function initMotion() {
       ...Array.from(document.querySelectorAll<HTMLElement>('[data-horizontal-section]')).map(createHorizontalScroll),
       ...Array.from(document.querySelectorAll<HTMLElement>('[data-steps-section]')).map(createStepsTimeline),
     ];
+    const hero = document.querySelector<HTMLElement>('[data-hero-content]');
+    if (hero) {
+      // One restrained introduction; the hero is already in view and needs no ScrollTrigger.
+      gsap.from(hero.querySelectorAll('.hero-kicker, h1, .hero-description, .hero-actions'), {
+        y: 18, autoAlpha: 0, duration: .8, stagger: .1, ease: 'power3.out',
+      });
+    }
+
     const ecosystem = document.querySelector<HTMLElement>('[data-ecosystem]');
     if (ecosystem) {
       gsap.from(ecosystem.querySelector('h2'), {
@@ -148,23 +156,28 @@ export function initMotion() {
         delay: .12,
         scrollTrigger: { trigger: ecosystem, start: 'top 70%' },
       });
-      gsap.to(ecosystem.querySelector('[data-eco-particles]'), {
-        y: -115,
-        ease: 'none',
-        scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
+      const ecoMedia = gsap.matchMedia();
+      ecoMedia.add({ desktop: '(min-width: 768px)', mobile: '(max-width: 767px)' }, (media) => {
+        const mobile = Boolean(media.conditions?.mobile);
+        gsap.to(ecosystem.querySelector('[data-eco-particles]'), {
+          y: mobile ? -30 : -85,
+          ease: 'none',
+          scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
+        });
+        gsap.to(ecosystem.querySelector('[data-eco-grid]'), {
+          y: mobile ? -16 : -50,
+          scale: mobile ? 1 : 1.05,
+          ease: 'none',
+          scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
+        });
+        gsap.to(ecosystem.querySelector('[data-eco-glow]'), {
+          y: mobile ? -24 : -70,
+          x: mobile ? 0 : -45,
+          ease: 'none',
+          scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
+        });
       });
-      gsap.to(ecosystem.querySelector('[data-eco-grid]'), {
-        y: -64,
-        scale: 1.08,
-        ease: 'none',
-        scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
-      });
-      gsap.to(ecosystem.querySelector('[data-eco-glow]'), {
-        y: -90,
-        x: -70,
-        ease: 'none',
-        scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
-      });
+      mainCleanups.push(() => ecoMedia.revert());
       gsap.from(ecosystem.querySelectorAll('.floating-card'), {
         y: 38,
         autoAlpha: 0,

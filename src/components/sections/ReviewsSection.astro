@@ -1,0 +1,71 @@
+---
+import { exampleReviews } from '../../data/reviews';
+const [featured, ...supporting] = exampleReviews;
+---
+<section class="reviews" id="opiniones" aria-labelledby="reviews-title">
+  <div class="reviews__inner">
+    <div class="reviews__header">
+      <div>
+        <p class="reviews__eyebrow"><span aria-hidden="true"></span> LA EXPERIENCIA CUENTA</p>
+        <h2 id="reviews-title" data-split>Las buenas experiencias<br /><em>merecen compartirse.</em></h2>
+      </div>
+      <div class="reviews__source"><span class="reviews__source-mark" aria-hidden="true">✳</span><div><strong>Diseño para reseñas de Google</strong><p>Ejemplos ficticios · sin conexión</p></div></div>
+    </div>
+    <div class="reviews__composition" data-reveal-group data-stagger="0.12">
+      <article class="reviews__featured" data-reveal-item data-reveal-direction="left">
+        <div class="reviews__top"><span class="reviews__quote-mark" aria-hidden="true">“</span><span class="reviews__stars" role="img" aria-label={`${featured.rating} de 5 estrellas`}>{'★'.repeat(featured.rating)}</span></div>
+        <blockquote>“{featured.text}”</blockquote>
+        <div class="reviews__author"><span class="reviews__avatar" aria-hidden="true">{featured.initials}</span><div><strong>{featured.author}</strong><small>Usuario de ejemplo</small></div></div>
+      </article>
+      <div class="reviews__list" data-reveal-item data-reveal-direction="right">
+        {supporting.map((review) => <article class="reviews__item"><div class="reviews__item-head"><div class="reviews__author"><span class="reviews__avatar" aria-hidden="true">{review.initials}</span><div><strong>{review.author}</strong><small>Usuario de ejemplo</small></div></div><span class="reviews__stars" role="img" aria-label={`${review.rating} de 5 estrellas`}>{'★'.repeat(review.rating)}</span></div><blockquote>“{review.text}”</blockquote></article>)}
+      </div>
+    </div>
+    <p class="reviews__note">Las opiniones mostradas son ilustrativas y no representan reseñas reales.</p>
+  </div>
+</section>
+
+<style>
+  .reviews { position: relative; padding: clamp(90px, 10vw, 145px) 0; background: #06101e; color: #f5f7fa; overflow: clip; }
+  .reviews::before { position:absolute; inset:0; pointer-events:none; content:''; background:radial-gradient(ellipse at 13% 28%, rgba(31,111,255,.1), transparent 43%); }
+  .reviews__inner { position:relative; width:min(1280px, calc(100% - 112px)); margin:auto; }
+  .reviews__header { display:flex; justify-content:space-between; align-items:end; gap:40px; margin-bottom:55px; }
+  .reviews__eyebrow { display:flex; align-items:center; gap:12px; margin:0 0 24px; color:#a5ceff; font:600 10px/1.3 var(--sans); letter-spacing:.14em; }
+  .reviews__eyebrow span { width:28px; height:1px; background:#8ac7ff; }
+  .reviews h2 { margin:0; font:400 clamp(3rem,5vw,5.2rem)/.96 var(--serif); letter-spacing:-.04em; }
+  .reviews h2 em { color:#b8daff; font-weight:400; }
+  .reviews__source { display:flex; align-items:center; gap:12px; padding-bottom:5px; }
+  .reviews__source-mark { display:grid; width:37px; height:37px; flex:0 0 auto; place-items:center; border:1px solid rgba(138,199,255,.27); border-radius:50%; color:#d8e9fb; font:600 19px/1 Arial,sans-serif; }
+  .reviews__source strong { font-size:12px; font-weight:600; }
+  .reviews__source p { margin:5px 0 0; color:#a5bed5; font-size:11px; }
+  .reviews__composition { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(36px,6vw,88px); align-items:stretch; border-top:1px solid rgba(178,214,255,.22); }
+  .reviews__featured { display:flex; flex-direction:column; padding:32px 0 12px; }
+  .reviews__top { display:flex; justify-content:space-between; align-items:start; gap:20px; }
+  .reviews__quote-mark { color:#8ac7ff; font:400 84px/.8 var(--serif); }
+  .reviews__stars { color:#b8d9ff; white-space:nowrap; font-size:15px; letter-spacing:3px; }
+  .reviews__featured blockquote { max-width:600px; margin:40px 0 50px; font:400 clamp(2rem,3.2vw,3.25rem)/1.1 var(--serif); letter-spacing:-.02em; }
+  .reviews__author { display:flex; align-items:center; gap:12px; }
+  .reviews__avatar { display:grid; width:40px; height:40px; flex:0 0 auto; place-items:center; border:1px solid rgba(138,199,255,.27); border-radius:50%; background:#102b45; color:#cae4ff; font:600 11px/1 var(--sans); }
+  .reviews__author strong,.reviews__author small { display:block; }
+  .reviews__author strong { font-size:12px; font-weight:600; }
+  .reviews__author small { margin-top:5px; color:#a4b8ca; font-size:10px; }
+  .reviews__featured .reviews__author { margin-top:auto; }
+  .reviews__item { padding:28px 0 32px; border-bottom:1px solid rgba(178,214,255,.18); }
+  .reviews__item-head { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .reviews__item blockquote { max-width:420px; margin:24px 0 0 52px; color:rgba(235,246,255,.76); font:400 15px/1.65 var(--sans); }
+  .reviews__note { margin:42px 0 0; color:#a4b8ca; font:400 11px/1.5 var(--sans); }
+  @media (max-width: 767px) {
+    .reviews { padding:80px 0; }
+    .reviews__inner { width:calc(100% - 40px); }
+    .reviews__header { display:block; margin-bottom:32px; }
+    .reviews h2 { font-size:clamp(2.8rem,11vw,4rem); }
+    .reviews__source { margin-top:30px; }
+    .reviews__composition { display:block; }
+    .reviews__featured { padding:27px 0 32px; border-bottom:1px solid rgba(178,214,255,.18); }
+    .reviews__featured blockquote { margin:25px 0 32px; font-size:clamp(2rem,8vw,2.8rem); }
+    .reviews__quote-mark { font-size:65px; }
+    .reviews__item blockquote { margin-left:0; }
+    .reviews__note { margin-top:28px; }
+  }
+  @media (max-width: 360px) { .reviews__item-head { align-items:start; flex-direction:column; } }
+</style>

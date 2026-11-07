@@ -8,26 +8,56 @@ const steps = [
 ];
 ---
 
-<section class="section steps" id="como-funciona" data-steps-section>
-  <div class="container steps-layout">
-    <div class="steps-intro">
-      <div class="steps-head">
+<section class="section journey" id="como-funciona" data-steps-section>
+  <div class="container journey-inner">
+    <div class="journey-heading">
+      <div>
         <SectionEyebrow>Cómo funciona</SectionEyebrow>
-        <h2 class="display steps-title" data-split>Empezar es más simple<br /><em>de lo que imaginás.</em></h2>
+        <h2 class="journey-title" data-split>Empezar es más simple<br /><em>de lo que imaginás.</em></h2>
       </div>
-      <a class="steps-cta" href="#demo">Solicitar demo <span aria-hidden="true">↗</span></a>
+      <a class="journey-cta" href="#demo">Conocé Turnate <span aria-hidden="true">↗</span></a>
     </div>
-    <ol class="steps-track">
+    <ol class="journey-list">
       {steps.map(([number, title, text]) => (
-        <li class="step" data-step>
+        <li class="journey-step" data-step>
           <span class="step-number" aria-hidden="true">{number}</span>
           <div class="step-copy">
-            <p class="step-kicker">Paso {number}</p>
             <h3>{title}</h3>
             <p>{text}</p>
           </div>
         </li>
       ))}
     </ol>
+    <div class="journey-end" aria-hidden="true"><span>DE LA PRIMERA CONVERSACIÓN A TU PRIMER TURNO</span><span>01 — 03</span></div>
   </div>
 </section>
+
+<style>
+  .journey { position: relative; background: #02050a; color: #f5f7fa; }
+  .journey-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
+  .journey-title { margin: 26px 0 0; font: 400 clamp(3rem, 5vw, 5.5rem)/.98 var(--serif); letter-spacing: -.045em; }
+  .journey-title em { color: #b8daff; font-weight: 400; }
+  .journey-cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 48px; flex-shrink: 0; padding: 0 0 13px; border-bottom: 1px solid rgba(138, 199, 255, .45); color: #f5f7fa; font-size: 13px; font-weight: 600; text-decoration: none; transition: border-color .25s, color .25s; }
+  .journey-cta span { color: #8ac7ff; font-size: 18px; transition: transform .25s; }
+  .journey-cta:hover { color: #b8daff; border-color: #8ac7ff; }
+  .journey-cta:hover span { transform: translate(3px, -3px); }
+  .journey-cta:focus-visible { outline: 2px solid #8ac7ff; outline-offset: 6px; }
+  .journey-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 5vw, 70px); margin: clamp(65px, 9vw, 115px) 0 0; padding: 0; list-style: none; }
+  .journey-step { min-width: 0; padding-top: 20px; border-top: 1px solid rgba(138, 199, 255, .28); }
+  .journey .step-number { display: block; width: auto; height: auto; border: 0; border-radius: 0; background: none; color: #8ac7ff; font: 500 11px/1 var(--sans); letter-spacing: .12em; }
+  .journey .step-copy { max-width: 300px; margin-top: 54px; }
+  .journey .step-copy h3 { margin: 0 0 13px; color: #f5f7fa; font: 400 clamp(1.7rem, 2.25vw, 2.25rem)/1.08 var(--serif); letter-spacing: -.025em; }
+  .journey .step-copy p { margin: 0; color: rgba(226, 237, 249, .66); font: 400 14px/1.65 var(--sans); }
+  .journey-end { display: flex; justify-content: space-between; gap: 20px; margin-top: clamp(72px, 8vw, 105px); padding-top: 18px; border-top: 1px solid rgba(138, 199, 255, .14); color: rgba(138, 199, 255, .55); font: 600 9px/1.4 var(--sans); letter-spacing: .13em; }
+  @media (max-width: 767px) {
+    .journey-heading { align-items: start; flex-direction: column; gap: 30px; }
+    .journey-title { margin-top: 23px; font-size: clamp(2.85rem, 11vw, 4.2rem); }
+    .journey-list { display: block; margin-top: 64px; }
+    .journey-step { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 23px 0 29px; }
+    .journey .step-number { padding-top: 6px; }
+    .journey .step-copy { margin: 0; }
+    .journey .step-copy h3 { font-size: 1.8rem; }
+    .journey-end { margin-top: 35px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .journey-cta, .journey-cta span { transition: none; } }
+</style>

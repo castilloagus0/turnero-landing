@@ -25,5 +25,9 @@ export default defineConfig({
     },
   }],
   devToolbar: { enabled: false },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    // Allows temporary LocalTunnel preview URLs during local development.
+    server: { allowedHosts: ['.loca.lt'] },
+  },
 });

@@ -1,0 +1,140 @@
+---
+import '../../styles/business-impact.css';
+
+const pillars = [
+  { id: 'automatiza', label: 'Automatizá', number: '01' },
+  { id: 'entende', label: 'Entendé', number: '02' },
+  { id: 'fideliza', label: 'Fidelizá', number: '03' },
+  { id: 'crece', label: 'Crecé', number: '04' },
+];
+---
+<section class="impact" id="funciones" aria-labelledby="impact-heading" data-impact>
+  <span id="beneficios" class="impact-anchor" aria-hidden="true"></span>
+  <div class="impact-inner">
+    <div class="impact-intro" data-reveal-group data-stagger="0.1">
+      <p class="impact-eyebrow" data-reveal-item data-reveal-direction="fade"><span></span> MÁS QUE TURNOS</p>
+      <div class="impact-intro__row">
+        <h2 id="impact-heading" data-reveal-item data-reveal-direction="up">Una agenda que trabaja<br /><em>para tu negocio.</em></h2>
+        <p data-reveal-item data-reveal-direction="right">Menos tareas manuales. Más claridad para decidir y oportunidades para que tus clientes vuelvan.</p>
+      </div>
+    </div>
+    <div class="impact-tabs" data-reveal data-reveal-direction="fade" role="tablist" aria-label="Explorá lo que Turnate puede hacer por tu negocio">
+      {pillars.map((pillar, index) => <button type="button" role="tab" id={`impact-tab-${pillar.id}`} aria-controls={`impact-panel-${pillar.id}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? '0' : '-1'} data-impact-tab={pillar.id}><span>{pillar.number}</span>{pillar.label}<i aria-hidden="true">↗</i></button>)}
+    </div>
+    <div class="impact-panels">
+      <article class="impact-panel" role="tabpanel" tabindex="0" id="impact-panel-automatiza" aria-labelledby="impact-tab-automatiza" data-impact-panel="automatiza" data-reveal-group data-stagger="0.12">
+        <div class="impact-copy" data-reveal-item data-reveal-direction="left">
+          <p class="impact-index">01 / AUTOMATIZÁ</p>
+          <h3>Tus clientes informados.<br /><em>Vos, sin perseguirlos.</em></h3>
+          <p>Los recordatorios se envían automáticamente mediante una plantilla oficial de WhatsApp. Cada reserva también se confirma por email.</p>
+          <div class="impact-result"><span>↘</span><div><small>EL RESULTADO</small><strong>Menos gestión manual.<br />Menos olvidos.</strong></div></div>
+        </div>
+        <div class="impact-stage stage-automation" data-reveal-item data-reveal-direction="right" aria-label="Representación de un recordatorio de WhatsApp y una confirmación por email">
+          <div class="stage-orbit stage-orbit--one"></div><div class="stage-orbit stage-orbit--two"></div>
+          <div class="stage-label"><span></span> COMUNICACIÓN AUTOMÁTICA</div>
+          <div class="message-preview">
+            <div class="message-preview__header"><span class="message-avatar">LC</span><div><b>LC Barber</b><small>WhatsApp</small></div><span class="message-header-dot">•••</span></div>
+            <div class="message-preview__body"><div class="message-bubble"><strong>Recordatorio de turno</strong><p>Hola Agustín Castillo, te recordamos que tenés un turno reservado para el 16 de septiembre de 2026 a las 17:30.</p><p>Si necesitás cancelar o gestionar tu turno, podés hacerlo desde nuestra página web.</p><p>Te esperamos en LC Barber. ✂</p><small>Recordatorio automático de LC Barber</small><time>14:30</time><div class="message-link">↗ &nbsp; Gestionar turno</div><div class="message-link">↗ &nbsp; Ver ubicación</div></div></div>
+          </div>
+          <div class="email-preview"><div class="email-icon">✉</div><div><small>CONFIRMACIÓN POR EMAIL</small><strong>Tu turno está confirmado.</strong><span>Corte · 18 sep · 17:00 hs</span></div><b>✓</b></div>
+          <p class="stage-caption">REPRESENTACIÓN DE LAS INTERFACES</p>
+        </div>
+      </article>
+      <article class="impact-panel" role="tabpanel" tabindex="0" id="impact-panel-entende" aria-labelledby="impact-tab-entende" data-impact-panel="entende" hidden>
+        <div class="impact-copy">
+          <p class="impact-index">02 / ENTENDÉ</p>
+          <h3>Tu negocio habla.<br /><em>Escuchá los datos.</em></h3>
+          <p>Consultá turnos, servicios y medios de pago para tomar decisiones con una imagen más clara de tu actividad.</p>
+          <div class="impact-result"><span>↗</span><div><small>EL RESULTADO</small><strong>Más información.<br />Mejores decisiones.</strong></div></div>
+        </div>
+        <div class="impact-stage stage-analytics" aria-label="Representación del panel de analíticas con turnos, usuarios, servicios y medios de pago">
+          <div class="stage-orbit stage-orbit--one"></div><div class="stage-orbit stage-orbit--two"></div>
+          <div class="stage-label"><span></span> ACTIVIDAD EN PERSPECTIVA</div>
+          <div class="analytics-window"><div class="analytics-top"><span class="window-dots">● ● ●</span><span>turnate / analíticas</span></div><div class="analytics-content"><div class="analytics-heading"><div><strong>Analíticas del negocio</strong><small>Tu actividad, en un solo lugar</small></div><span>Semana</span></div><div class="analytics-metrics"><div><small>Turnos totales</small><strong>103</strong></div><div><small>Usuarios registrados</small><strong>62</strong></div><div><small>Servicios solicitados</small><strong>2</strong></div></div><div class="analytics-chart"><div><strong>Turnos por día</strong><span>06-nov: 1</span></div><svg viewBox="0 0 400 140" role="img" aria-label="Gráfico ilustrativo de turnos por día"><path class="grid" d="M0 20H400 M0 60H400 M0 100H400 M0 139H400"/><path class="chart-line" d="M0 113 L18 99 L27 18 L36 88 L49 88 L57 119 L68 88 L78 119 L125 119 L135 110 L144 110 L154 80 L164 100 L174 119 L184 110 L194 119 L204 110 L214 119 L224 99 L234 88 L244 119 L274 119 L284 110 L294 110 L304 70 L314 119 L344 119 L354 100 L364 119 L374 88 L384 119 L394 88 L400 119"/></svg><div class="chart-dates"><span>OCTUBRE</span><span>NOVIEMBRE</span></div></div></div></div>
+          <div class="analytics-callout"><span>↗</span><div><small>UNA MIRADA MÁS CLARA</small><strong>De la actividad<br />a la decisión.</strong></div></div>
+          <p class="stage-caption">REPRESENTACIÓN DE LA INTERFAZ · DATOS DE EJEMPLO</p>
+        </div>
+      </article>
+      <article class="impact-panel" role="tabpanel" tabindex="0" id="impact-panel-fideliza" aria-labelledby="impact-tab-fideliza" data-impact-panel="fideliza" hidden>
+        <div class="impact-copy">
+          <p class="impact-index">03 / FIDELIZÁ</p>
+          <h3>Una buena experiencia<br /><em>puede traerlos de vuelta.</em></h3>
+          <p>Escuchá a tus clientes y descubrí oportunidades para reconocer a quienes eligen tu negocio una y otra vez.</p>
+          <div class="impact-result"><span>✳</span><div><small>UNA IDEA PARA CRECER</small><strong>Escuchar mejor.<br />Construir relaciones.</strong></div></div>
+        </div>
+        <div class="impact-stage stage-loyalty" aria-label="Concepto ilustrativo de valoración y beneficio por visitas frecuentes">
+          <div class="stage-orbit stage-orbit--one"></div><div class="stage-orbit stage-orbit--two"></div>
+          <div class="stage-label"><span></span> EXPERIENCIAS QUE VUELVEN</div>
+          <div class="loyalty-card"><div class="loyalty-card__top"><span>EXPERIENCIA DEL CLIENTE</span><span>✳</span></div><p>¿Cómo fue tu<br /><em>experiencia?</em></p><div class="stars" aria-label="Cinco estrellas"><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span></div><div class="review-note">Dejá un comentario <span>↗</span></div></div>
+          <div class="loyalty-benefit"><small>CONCEPTO DE FIDELIZACIÓN</small><strong>Una visita lleva a la próxima.</strong><div><span>5 visitas</span><b>→</b><span>20% OFF</span></div><p>Un beneficio para quienes vuelven.</p></div>
+          <p class="stage-caption">VALORACIONES Y CONCEPTO DE BENEFICIO · EJEMPLO ILUSTRATIVO</p>
+        </div>
+      </article>
+      <article class="impact-panel" role="tabpanel" tabindex="0" id="impact-panel-crece" aria-labelledby="impact-tab-crece" data-impact-panel="crece" hidden>
+        <div class="impact-copy">
+          <p class="impact-index">04 / CRECÉ</p>
+          <h3>Las horas tranquilas<br /><em>también son oportunidad.</em></h3>
+          <p>Imaginá impulsar los momentos de menor demanda con beneficios pensados para atraer nuevas reservas.</p>
+          <div class="impact-result"><span>↗</span><div><small>UNA IDEA PARA CRECER</small><strong>Más motivos para reservar.<br />Más oportunidades para vos.</strong></div></div>
+        </div>
+        <div class="impact-stage stage-growth" aria-label="Concepto ilustrativo de una promoción para horarios de menor demanda">
+          <div class="stage-orbit stage-orbit--one"></div><div class="stage-orbit stage-orbit--two"></div>
+          <div class="stage-label"><span></span> OPORTUNIDADES EN TU AGENDA</div>
+          <div class="growth-card"><div class="growth-card__top"><span>IDEA DE PROMOCIÓN SEMANAL</span><span>✳</span></div><div class="growth-day"><div><small>UN DÍA PARA IMPULSAR</small><strong>Martes</strong></div><span>↗</span></div><div class="growth-discount"><strong>15<span>%</span></strong><div><b>OFF</b><small>14:00 — 18:00</small></div></div><div class="growth-footer"><span>Menor demanda</span><span>Una nueva oportunidad</span></div></div>
+          <div class="growth-note"><span>✦</span><p>Una agenda con espacio<br /><strong>también tiene potencial.</strong></p></div>
+          <p class="stage-caption">CONCEPTO DE CRECIMIENTO · EJEMPLO ILUSTRATIVO</p>
+        </div>
+      </article>
+    </div>
+    <div class="impact-close" data-reveal data-reveal-direction="fade"><p>Mientras vos atendés, <em>Turnate te acompaña.</em></p><a href="#demo">Conocé Turnate <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+<script>
+  import { gsap } from '../../lib/animations/gsap';
+
+  document.querySelectorAll<HTMLElement>('[data-impact]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-impact-tab]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[data-impact-panel]'));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let transition: gsap.core.Animation | undefined;
+    const select = (index: number, focus = false) => {
+      if (focus) tabs[index]?.focus();
+      if (index === current) return;
+      transition?.kill();
+      // A selection may interrupt a stagger; clear its partial state before switching again.
+      gsap.set(root.querySelectorAll('.stars span, .analytics-metrics > div, .growth-day, .growth-discount'), { clearProps: 'opacity,visibility,transform' });
+      const outgoing = panels.find((panel) => !panel.hidden) ?? panels[current];
+      const incoming = panels[index];
+      gsap.set(outgoing, { clearProps: 'opacity,visibility,transform' });
+      tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
+      current = index;
+      const show = () => {
+        panels.forEach((panel) => { panel.hidden = panel !== incoming; gsap.set(panel, { clearProps: 'opacity,visibility,transform' }); });
+        if (!reduced.matches) {
+          const mobile = window.matchMedia('(max-width: 767px)').matches;
+          const timeline = gsap.timeline();
+          timeline.fromTo(incoming, { autoAlpha: 0, y: mobile ? 12 : 22, scale: .985 }, { autoAlpha: 1, y: 0, scale: 1, duration: .55, ease: 'power3.out', clearProps: 'opacity,visibility,transform' });
+          const detail = incoming.querySelectorAll('.stars span, .analytics-metrics > div, .growth-day, .growth-discount');
+          if (detail.length) timeline.fromTo(detail, { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: .35, stagger: .055, ease: 'power2.out', clearProps: 'opacity,visibility,transform' }, .15);
+          transition = timeline;
+        }
+      };
+      if (reduced.matches || outgoing === incoming) show();
+      else transition = gsap.to(outgoing, { autoAlpha: 0, y: -14, scale: .985, duration: .2, ease: 'power2.in', onComplete: show });
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index));
+      tab.addEventListener('keydown', (event) => {
+        let next = index;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        select(next, true);
+      });
+    });
+  });
+</script>

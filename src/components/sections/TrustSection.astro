@@ -1,5 +1,112 @@
 ---
-import SectionEyebrow from '../ui/SectionEyebrow.astro';
 import lcBarberLogo from '../../assets/images/lc-barber-logo.png';
 ---
-<section class="section trust"><div class="trust-orbit" aria-hidden="true" data-parallax="-56"></div><div class="container trust-layout"><div class="trust-heading"><SectionEyebrow>El origen del producto</SectionEyebrow><h2 class="display trust-title" data-split>Nació en una<br/><em>barbería real.</em></h2></div><div class="trust-copy" data-reveal><div class="trust-logo"><img src={lcBarberLogo.src} width={lcBarberLogo.width} height={lcBarberLogo.height} alt="Logo de LC BARBER" loading="lazy" decoding="async" /></div><div class="trust-story"><p>Turnate nació a partir de la necesidad de organizar el día a día de <strong>LC BARBER</strong>: reservas, clientes y tiempos de un negocio que no puede frenar para ordenar su agenda.</p><p>Por eso la experiencia está pensada desde el trabajo real, no desde una planilla.</p><a class="trust-visit" href="https://lcbarber.com.ar/" target="_blank" rel="noopener noreferrer">Visitar LC BARBER <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una pestaña nueva)</span></a></div></div></div></section>
+<section class="section trust origin" aria-labelledby="origin-title">
+  <div class="trust-orbit" aria-hidden="true" data-parallax="-56"></div>
+  <div class="container origin__layout">
+    <div class="origin__heading">
+      <p class="origin__eyebrow"><span aria-hidden="true"></span> HECHO DESDE LA EXPERIENCIA</p>
+      <h2 id="origin-title" class="origin__title" data-split>Nació en una<br /><em>barbería real.</em></h2>
+    </div>
+    <div class="origin__story" data-reveal>
+      <div class="origin__identity">
+        <img src={lcBarberLogo.src} width={lcBarberLogo.width} height={lcBarberLogo.height} alt="LC Barber" loading="lazy" decoding="async" />
+        <p>DONDE TODO EMPEZÓ <span>01 / LC BARBER</span></p>
+      </div>
+      <div class="origin__copy">
+        <p>Turnate nació de una necesidad concreta: organizar las reservas, los clientes y los tiempos de <strong>LC Barber</strong>.</p>
+        <p>Por eso está pensado desde el ritmo real de un negocio y para quienes lo hacen funcionar todos los días.</p>
+        <a class="origin__link" href="https://lcbarber.com.ar/" target="_blank" rel="noopener noreferrer">Conocé LC Barber <span aria-hidden="true">↗</span><span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .origin { padding-block: clamp(80px, 8vw, 115px); }
+  .origin__layout {
+    position: relative;
+    width: min(calc(100% - 48px), 1080px);
+    display: grid;
+    grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+    gap: clamp(36px, 5vw, 72px);
+    align-items: start;
+  }
+  .origin__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 24px;
+    color: #a5ceff;
+    font: 600 10px/1.4 var(--sans);
+    letter-spacing: .13em;
+  }
+  .origin__eyebrow span { width: 28px; height: 1px; background: currentColor; }
+  .origin__title {
+    margin: 0;
+    color: #f5f7fa;
+    font: 400 clamp(3.2rem, 5.5vw, 5.5rem)/.95 var(--serif);
+    letter-spacing: -.045em;
+  }
+  .origin__title em { color: #b8daff; font-weight: 400; }
+  .origin__story { max-width: 540px; }
+  .origin__identity {
+    display: grid;
+    gap: 12px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgba(178, 214, 255, .2);
+  }
+  .origin__identity img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: brightness(1.4);
+  }
+  .origin__identity p {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0;
+    color: #a5ceff;
+    font: 600 9px/1.5 var(--sans);
+    letter-spacing: .12em;
+  }
+  .origin__identity p span { color: rgba(209, 227, 247, .55); text-align: right; }
+  .origin__copy { padding-top: 20px; }
+  .origin__copy p { margin: 0; color: rgba(235, 246, 255, .72); font: 400 15px/1.7 var(--sans); }
+  .origin__copy p + p { margin-top: 15px; }
+  .origin__copy strong { color: #f5f7fa; font-weight: 600; }
+  .origin__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 27px;
+    padding: 0 0 8px;
+    border-bottom: 1px solid rgba(138, 199, 255, .6);
+    color: #eaf4ff;
+    font: 600 12px/1.4 var(--sans);
+    text-decoration: none;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .origin__link span[aria-hidden] { color: #8ac7ff; font-size: 15px; transition: transform .2s ease; }
+  .origin__link:hover { color: #8ac7ff; border-color: #8ac7ff; }
+  .origin__link:hover span[aria-hidden] { transform: translate(3px, -3px); }
+  .origin__link:focus-visible { outline: 2px solid #8ac7ff; outline-offset: 6px; }
+  @media (max-width: 850px) {
+    .origin__layout { width: min(calc(100% - 48px), 700px); grid-template-columns: 1fr; gap: 35px; }
+    .origin__story { max-width: 560px; }
+  }
+  @media (max-width: 540px) {
+    .origin { padding-block: 76px; }
+    .origin__layout { width: calc(100% - 40px); }
+    .origin__title { font-size: clamp(2.8rem, 11.5vw, 4rem); }
+    .origin__identity img { width: 100px; height: 100px; }
+    .origin__identity { gap: 15px; }
+    .origin__identity p { font-size: 9px; }
+    .origin__copy p { font-size: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .origin__link, .origin__link span[aria-hidden] { transition: none; }
+  }
+</style>

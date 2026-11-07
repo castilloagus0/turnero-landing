@@ -5,9 +5,21 @@ import { industries } from '../../data/industries';
 ---
 <section class="industries-motion" id="rubros" data-horizontal-section>
   <div class="industries-desktop" aria-label="Rubros que usan Turnate">
-    <div class="container industries-motion__head"><SectionEyebrow>Para cada forma de trabajar</SectionEyebrow><div><h2 class="display industries-title" data-split>Una agenda.<br/>Mil formas de usarla.</h2><p class="industries-intro">El mismo sistema, pensado para respetar el ritmo particular de cada negocio.</p></div></div>
+    <div class="container industries-motion__head industries-heading"><div class="industries-heading__main"><SectionEyebrow>Para cada forma de trabajar</SectionEyebrow><h2 class="display industries-title" data-split>Una agenda.<br/><em>Mil formas de usarla.</em></h2></div><p class="industries-intro">El mismo sistema, pensado para respetar el ritmo particular de cada negocio.</p></div>
     <div class="industries-motion__viewport" data-horizontal-viewport><div class="industries-motion__track" data-horizontal-track>{industries.map((industry) => <article class="industry-panel" data-horizontal-panel><div class="industry-panel__visual" aria-hidden="true"><img src={industry.image} alt="" width="1672" height="941" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" /></div><div class="industry-panel__inner"><span class="industry-number">{industry.id} / RUBRO</span><h3 class="display">{industry.name}</h3><p>{industry.description}</p><span class="industry-panel__detail">TURNATE / AGENDA HECHA A MEDIDA</span></div></article>)}</div></div>
     <div class="container industries-motion__footer"><p><span data-horizontal-current>01</span> / {String(industries.length).padStart(2, '0')}</p><div class="horizontal-progress"><i data-horizontal-progress></i></div><span>SCROLL PARA EXPLORAR</span></div>
   </div>
-  <div class="industries-mobile section"><div class="container industries-head"><div><SectionEyebrow>Para cada forma de trabajar</SectionEyebrow></div><div><h2 class="display industries-title">Una agenda.<br/>Mil formas de usarla.</h2><p class="industries-intro">El mismo sistema, pensado para respetar el ritmo particular de cada negocio.</p></div></div><div class="industry-wrap"><IndustriesCarousel client:visible /></div></div>
+  <div class="industries-mobile section"><div class="container industries-head industries-heading"><div class="industries-heading__main"><SectionEyebrow>Para cada forma de trabajar</SectionEyebrow><h2 class="display industries-title">Una agenda.<br/><em>Mil formas de usarla.</em></h2></div><p class="industries-intro">El mismo sistema, pensado para respetar el ritmo particular de cada negocio.</p></div><div class="industry-wrap"><IndustriesCarousel client:visible /></div></div>
 </section>
+
+<style>
+  .industries-heading { grid-template-columns: minmax(0, 1fr) minmax(220px, 300px); align-items: end; gap: 32px 60px; }
+  .industries-heading__main { min-width: 0; }
+  .industries-heading .industries-title { margin: 20px 0 0; }
+  .industries-heading .industries-title em { color: #a9d2ff; font-weight: 400; }
+  .industries-heading .industries-intro { justify-self: start; margin: 0 0 .2em; max-width: 300px; }
+  @media (max-width: 850px) {
+    .industries-heading { grid-template-columns: 1fr; gap: 22px; }
+    .industries-heading .industries-intro { max-width: 380px; }
+  }
+</style>

@@ -1,20 +1,29 @@
 import { useState, type FormEvent } from 'react';
 
 type Values = { name: string; email: string; business: string; industry: string; message: string };
+type Status = 'idle' | 'sending' | 'success' | 'error';
 const initial: Values = { name: '', email: '', business: '', industry: '', message: '' };
+const recipient = 'castilloagustin.dev@gmail.com';
+const whatsappNumber = '543534195762';
 
 export default function DemoForm() {
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState<Partial<Values>>({});
+  const [status, setStatus] = useState<Status>('idle');
+  const whatsappMessage = encodeURIComponent(`Hola Agustín, quiero coordinar una demo de Turnate.${values.name ? ` Soy ${values.name}.` : ''}${values.business ? ` Mi negocio es ${values.business}.` : ''}`);
+
   const change = (field: keyof Values, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
+    if (status === 'success' || status === 'error') setStatus('idle');
   };
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (status === 'sending') return;
     const next: Partial<Values> = {};
     if (!values.name.trim()) next.name = 'Ingresá tu nombre.';
-    if (!/^\S+@\S+\.\S+$/.test(values.email)) next.email = 'Ingresá un correo válido.';
+    if (!/^\S+@\S+\.\S+$/.test(values.email.trim())) next.email = 'Ingresá un correo válido.';
     if (!values.business.trim()) next.business = 'Contanos el nombre de tu negocio.';
     if (!values.industry) next.industry = 'Elegí un rubro.';
     setErrors(next);
@@ -22,18 +31,55 @@ export default function DemoForm() {
       document.getElementById(Object.keys(next)[0])?.focus();
       return;
     }
-    const body = `Nombre: ${values.name}\nCorreo: ${values.email}\nNegocio: ${values.business}\nRubro: ${values.industry}\nMensaje: ${values.message}`;
-    window.location.href = `mailto:hola@turnate.com?subject=${encodeURIComponent('Solicitud de demo de Turnate')}&body=${encodeURIComponent(body)}`;
+
+    const form = event.currentTarget;
+    const honey = String(new FormData(form).get('_honey') ?? '');
+    setStatus('sending');
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: values.name.trim(),
+          email: values.email.trim(),
+          negocio: values.business.trim(),
+          rubro: values.industry,
+          mensaje: values.message.trim() || 'Sin mensaje adicional',
+          _subject: 'Nueva solicitud de demo de Turnate',
+          _replyto: values.email.trim(),
+          _template: 'table',
+          _honey: honey,
+        }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const result = await response.json();
+      // FormSubmit can reply with HTTP 200 and a string "false" before activation.
+      // Never report delivery if the service says activation is still needed.
+      if (!response.ok || (result.success !== true && result.success !== 'true') || /activat/i.test(String(result.message ?? ''))) throw new Error('Submission failed');
+      setValues(initial);
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
   };
+
   const field = (key: 'name' | 'email' | 'business', label: string, type = 'text') => (
-    <div className="field"><label htmlFor={key}>{label}</label><input id={key} name={key} type={type} autoComplete={{ name: 'name', email: 'email', business: 'organization' }[key]} required value={values[key]} onChange={(event) => change(key, event.target.value)} aria-invalid={!!errors[key]} aria-describedby={errors[key] ? `${key}-error` : undefined} />{errors[key] && <span id={`${key}-error`} className="field-error">{errors[key]}</span>}</div>
+    <div className="field"><label htmlFor={key}>{label}</label><input id={key} name={key} type={type} autoComplete={{ name: 'name', email: 'email', business: 'organization' }[key]} maxLength={key === 'email' ? 254 : 120} required value={values[key]} onChange={(event) => change(key, event.target.value)} aria-invalid={!!errors[key]} aria-describedby={errors[key] ? `${key}-error` : undefined} />{errors[key] && <span id={`${key}-error`} className="field-error">{errors[key]}</span>}</div>
   );
-  return <form className="main-demo-form" onSubmit={submit} noValidate>
+
+  return <form className="main-demo-form" action={`https://formsubmit.co/${recipient}`} method="POST" onSubmit={submit}>
+    <input type="hidden" name="_subject" value="Nueva solicitud de demo de Turnate" />
+    <input type="hidden" name="_template" value="table" />
+    <div style={{ display: 'none' }} aria-hidden="true"><label htmlFor="demo-website">Sitio web</label><input id="demo-website" type="text" name="_honey" tabIndex={-1} autoComplete="off" /></div>
     <div className="form-row">{field('name', 'NOMBRE Y APELLIDO')}{field('email', 'CORREO ELECTRÓNICO', 'email')}</div>
     {field('business', 'NOMBRE DEL NEGOCIO')}
     <div className="field"><label htmlFor="industry">RUBRO</label><select id="industry" name="industry" required value={values.industry} onChange={(event) => change('industry', event.target.value)} aria-invalid={!!errors.industry} aria-describedby={errors.industry ? 'industry-error' : undefined}><option value="">Seleccioná una opción</option><option>Barbería</option><option>Estética</option><option>Consultorio</option><option>Entrenamiento</option><option>Mascotas</option><option>Otro</option></select>{errors.industry && <span id="industry-error" className="field-error">{errors.industry}</span>}</div>
-    <div className="field"><label htmlFor="message">CONTANOS UN POCO MÁS (OPCIONAL)</label><textarea id="message" name="message" value={values.message} onChange={(event) => change('message', event.target.value)} /></div>
-    <button className="button button--light" type="submit" data-magnetic>Solicitar mi demo <span className="arrow">→</span></button>
-    <p className="form-note">Se abrirá tu aplicación de correo para enviar la solicitud.</p>
+    <div className="field"><label htmlFor="message">CONTANOS UN POCO MÁS (OPCIONAL)</label><textarea id="message" name="message" maxLength={2000} value={values.message} onChange={(event) => change('message', event.target.value)} /></div>
+    <button className="button button--light" type="submit" disabled={status === 'sending'} data-magnetic>{status === 'sending' ? 'Enviando…' : 'Solicitar mi demo'} <span className="arrow" aria-hidden="true">→</span></button>
+    <div className="form-feedback" role="status" aria-live="polite">
+      {status === 'success' && <p className="form-note">¡Gracias! Tu solicitud fue enviada.</p>}
+      {status === 'error' && <div className="form-fallback"><p className="form-note">No pudimos enviar tu solicitud. Podés intentar nuevamente o contactarnos por WhatsApp.</p><a className="form-whatsapp" href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">Continuar por WhatsApp <span aria-hidden="true">↗</span><span className="sr-only"> (se abre en una pestaña nueva)</span></a></div>}
+      {status === 'idle' && <p className="form-note">Te responderemos por correo para coordinar una demo.</p>}
+    </div>
   </form>;
 }
