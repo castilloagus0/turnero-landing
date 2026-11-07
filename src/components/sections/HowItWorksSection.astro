@@ -1,5 +1,33 @@
 ---
 import SectionEyebrow from '../ui/SectionEyebrow.astro';
-const steps=[['01','Conocé el sistema.','En una demo breve vemos cómo Ordina puede acompañar la forma en que ya trabajás.'],['02','Configurá tu negocio.','Definí servicios, profesionales y horarios disponibles con acompañamiento.'],['03','Empezá a recibir reservas.','Compartí tu agenda y gestioná cada turno desde un solo lugar.']];
+
+const steps = [
+  ['01', 'Conocé el sistema.', 'En una demo breve vemos cómo Turnate puede acompañar la forma en que ya trabajás.'],
+  ['02', 'Configurá tu negocio.', 'Definí servicios, profesionales y horarios disponibles con acompañamiento.'],
+  ['03', 'Empezá a recibir reservas.', 'Compartí tu agenda y gestioná cada turno desde un solo lugar.'],
+];
 ---
-<section class="section steps" id="como-funciona" data-steps-section><div class="container"><div class="steps-head"><SectionEyebrow>Cómo funciona</SectionEyebrow><h2 class="display steps-title" data-split>Empezar es más simple de lo que imaginás.</h2></div><div class="steps-track"><svg class="steps-line" viewBox="0 0 100 900" preserveAspectRatio="none" aria-hidden="true"><path data-steps-line d="M50 0 V900"/></svg>{steps.map(([number,title,text]) => <article class="step" data-step><div class="step-copy"><p class="eyebrow">Paso {number}</p><h3>{title}</h3><p>{text}</p></div><span class="step-number">{number}</span><div class="step-visual" aria-hidden="true"></div></article>)}</div></div></section>
+
+<section class="section steps" id="como-funciona" data-steps-section>
+  <div class="container steps-layout">
+    <div class="steps-intro">
+      <div class="steps-head">
+        <SectionEyebrow>Cómo funciona</SectionEyebrow>
+        <h2 class="display steps-title" data-split>Empezar es más simple<br /><em>de lo que imaginás.</em></h2>
+      </div>
+      <a class="steps-cta" href="#demo">Solicitar demo <span aria-hidden="true">↗</span></a>
+    </div>
+    <ol class="steps-track">
+      {steps.map(([number, title, text]) => (
+        <li class="step" data-step>
+          <span class="step-number" aria-hidden="true">{number}</span>
+          <div class="step-copy">
+            <p class="step-kicker">Paso {number}</p>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,19 +1,20 @@
 ---
 import { X } from '@lucide/astro';
+import '../../styles/navigation-a11y.css';
 ---
 <header class="site-header" data-header>
   <nav class="nav" aria-label="Navegación principal">
-    <a class="brand" href="#inicio" aria-label="Turnate, inicio">turnate<span></span></a>
+    <a class="brand" href="/#inicio" aria-label="Turnate, inicio">turnate<span></span></a>
     <div class="nav-links" aria-label="Secciones principales">
-      <a href="#producto">Producto</a><a href="#como-funciona">Cómo funciona</a><a href="#producto">Para negocios</a><a href="#beneficios">Beneficios</a>
+      <a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a>
     </div>
-    <a class="header-cta" href="#demo">Probar Turnate</a>
+    <a class="header-cta" href="/#demo">Probar Turnate</a>
     <button class="menu-trigger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
   </nav>
-  <div class="menu-overlay" data-menu-overlay></div>
-  <aside class="mobile-menu" id="mobile-menu" aria-hidden="true" data-mobile-menu>
-    <div class="mobile-menu__top"><span class="brand">turnate<span></span></span><button type="button" aria-label="Cerrar menú" data-menu-close><X size={24} /></button></div>
-    <nav class="mobile-menu__links" aria-label="Navegación móvil"><a href="#producto">Producto</a><a href="#como-funciona">Cómo funciona</a><a href="#producto">Para negocios</a><a href="#beneficios">Beneficios</a></nav>
-    <a class="mobile-menu__cta" href="#demo">Probar Turnate <span aria-hidden="true">↗</span></a>
+  <div class="menu-overlay" aria-hidden="true" data-menu-overlay data-lenis-prevent></div>
+  <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-modal="true" aria-hidden="true" inert data-mobile-menu data-lenis-prevent>
+    <div class="mobile-menu__top"><span class="brand">turnate<span></span></span><button type="button" aria-label="Cerrar menú" data-menu-close><X size={24} aria-hidden="true" /></button></div>
+    <nav class="mobile-menu__links" aria-label="Navegación móvil"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a></nav>
+    <a class="mobile-menu__cta" href="/#demo">Probar Turnate <span aria-hidden="true">↗</span></a>
   </aside>
 </header>

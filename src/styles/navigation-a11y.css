@@ -1,0 +1,42 @@
+.menu-trigger,
+.mobile-menu__top button {
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.site-header :is(a, button):focus-visible {
+  outline: 2px solid #8ac7ff;
+  outline-offset: 4px;
+}
+
+html.mobile-menu-open,
+html.mobile-menu-open body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@media (max-width: 780px) {
+  .site-header .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .site-header .mobile-menu__links {
+    gap: clamp(12px, 2.5vh, 18px);
+    margin-top: clamp(28px, 9vh, 84px);
+    padding-bottom: 36px;
+  }
+
+  .site-header .mobile-menu__links a {
+    min-height: 44px;
+  }
+
+  .site-header .mobile-menu__cta {
+    position: static;
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+}

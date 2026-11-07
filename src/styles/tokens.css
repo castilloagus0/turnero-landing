@@ -1,22 +1,17 @@
+/* Shared visual foundations for the Turnate landing. */
 :root {
-  --ink: #0b1d28;
-  --paper: #f2fbfa;
-  --cobalt: #2d7587;
-  --lime: #bee9e8;
-  --ice: #cae9ff;
-  --muted: #2b7e7d;
-  --white: #f5fbff;
-  --yale: #1b4965;
-  --pacific: #62b6cb;
-  --fresh: #5fa8d3;
-  --water: #7fd3d2;
-  --pale: #e0f2ff;
-  --line: color-mix(in srgb, var(--ink) 16%, transparent);
-  --display: 'Instrument Serif', Georgia, serif;
-  --sans: 'Manrope', Arial, sans-serif;
-  --mono: 'IBM Plex Mono', monospace;
-  --container: min(1280px, calc(100vw - 96px));
-  --radius: 18px;
+  --bg: #02050a;
+  --bg-deep: #061328;
+  --ink: #f5f7fa;
+  --muted: rgba(245, 247, 250, .58);
+  --blue: #1f6fff;
+  --electric: #47a3ff;
+  --soft: #8ac7ff;
+  --line: rgba(178, 214, 255, .18);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', Arial, sans-serif;
+  --radius-pill: 999px;
+  --content-width: 1120px;
+  --section-space: clamp(100px, 14vw, 180px);
+  --focus-ring: #8ac7ff;
 }
-
-@media (max-width: 700px) { :root { --container: min(100% - 40px, 1280px); } }

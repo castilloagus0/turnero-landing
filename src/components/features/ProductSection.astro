@@ -1,4 +1,14 @@
 ---
 import { CalendarDays, BellRing, MessageCircle, ChartNoAxesCombined } from '@lucide/astro';
+const benefits = [
+  { icon: CalendarDays, title: 'Agenda clara', description: 'Visualizá tu día y organizá la disponibilidad de cada profesional.' },
+  { icon: BellRing, title: 'Menos ausencias', description: 'Recordatorios automáticos por WhatsApp y email.' },
+  { icon: MessageCircle, title: 'Reservas directas', description: 'Tus clientes reservan cuando les resulta más cómodo.' },
+  { icon: ChartNoAxesCombined, title: 'Más foco', description: 'Centralizá la gestión y dedicá tiempo a crecer.' },
+];
 ---
-<section class="product-section" id="como-funciona" data-product-section><div class="product-head"><p class="section-tag">Todo en su lugar</p><h2>El ritmo de tu negocio,<br/><em>sin el desorden.</em></h2><p>Reservas online, una agenda clara y recordatorios automáticos para trabajar mejor todos los días.</p></div><div class="product-points" id="beneficios"><article><CalendarDays/><h3>Agenda clara</h3><p>Visualizá tu día y organizá la disponibilidad de cada profesional.</p></article><article><BellRing/><h3>Menos ausencias</h3><p>Recordatorios automáticos por WhatsApp y email.</p></article><article><MessageCircle/><h3>Reservas directas</h3><p>Tus clientes reservan cuando les resulta más cómodo.</p></article><article><ChartNoAxesCombined/><h3>Más foco</h3><p>Centralizá la gestión y dedicá tiempo a crecer.</p></article></div><div class="closing-line">Una agenda que hace espacio para lo importante. <a href="#demo">Solicitar demo <span>↗</span></a></div></section>
+<section class="product-section" id="beneficios" data-product-section>
+  <div class="product-head"><p class="section-tag">Todo en su lugar</p><h2>El ritmo de tu negocio,<br/><em>sin el desorden.</em></h2><p>Reservas online, una agenda clara y recordatorios automáticos para trabajar mejor todos los días.</p></div>
+  <div class="product-points">{benefits.map(({ icon: Icon, title, description }, index) => <article><div class="benefit-card__surface"><div class="benefit-card__top"><span class="benefit-card__icon"><Icon size={20} strokeWidth={1.5}/></span><span class="benefit-card__number">0{index + 1}</span></div><div class="benefit-card__copy"><h3>{title}</h3><p>{description}</p></div></div></article>)}</div>
+  <div class="closing-line">Una agenda que hace espacio para lo importante. <a href="#demo">Solicitar demo <span>↗</span></a></div>
+</section>

@@ -1,0 +1,12 @@
+---
+import { Scissors, Sparkles, Stethoscope } from '@lucide/astro';
+
+const businesses = [
+  { label: 'Barberías', Icon: Scissors },
+  { label: 'Estética', Icon: Sparkles },
+  { label: 'Consultorios', Icon: Stethoscope },
+];
+---
+<ul class="hero-business-nodes" aria-label="Negocios que pueden usar Turnate">
+  {businesses.map(({ label, Icon }) => <li><Icon size={14} strokeWidth={1.6} aria-hidden="true" /><span>{label}</span></li>)}
+</ul>

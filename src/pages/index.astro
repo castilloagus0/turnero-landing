@@ -1,10 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/main-sections.css';
 import HeroSection from '../components/hero/Hero.astro';
 import EcosystemSection from '../components/ecosystem/EcosystemSection.astro';
 import ProductSection from '../components/features/ProductSection.astro';
-import SocialProofSection from '../components/marketing/SocialProofSection.astro';
-import ExperienceSection from '../components/marketing/ExperienceSection.astro';
-import DemoContactSection from '../components/marketing/DemoContactSection.astro';
+import SolutionSection from '../components/sections/SolutionSection.astro';
+import IndustriesSection from '../components/sections/IndustriesSection.astro';
+import FeaturesSection from '../components/sections/FeaturesSection.astro';
+import HowItWorksSection from '../components/sections/HowItWorksSection.astro';
+import TrustSection from '../components/sections/TrustSection.astro';
+import DemoSection from '../components/sections/DemoSection.astro';
 ---
-<BaseLayout title="Turnate — La forma simple de gestionar tus turnos" description="Reservas, agenda y recordatorios para negocios que quieren crecer."><HeroSection/><EcosystemSection/><ProductSection/><SocialProofSection/><ExperienceSection/><DemoContactSection/></BaseLayout>
+<BaseLayout title="Turnate — Gestión de turnos online para tu negocio" description="Gestioná reservas online, agenda y recordatorios por WhatsApp y email desde un solo lugar. Turnate simplifica los turnos de negocios y profesionales.">
+  <HeroSection />
+  <EcosystemSection />
+  <ProductSection />
+  <div class="main-sections">
+    <TrustSection />
+    <SolutionSection />
+    <IndustriesSection />
+    <FeaturesSection />
+    <HowItWorksSection />
+    <DemoSection />
+  </div>
+</BaseLayout>

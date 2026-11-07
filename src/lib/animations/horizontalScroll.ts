@@ -42,7 +42,7 @@ export function createHorizontalScroll(section: HTMLElement) {
       const inner = panel.querySelector<HTMLElement>('.industry-panel__inner');
       const visual = panel.querySelector<HTMLElement>('.industry-panel__visual');
       const tweens = [];
-      if (inner) tweens.push(gsap.from(inner, { opacity: 0.45, y: 30, duration: 0.7, ease: motionConfig.ease.reveal, scrollTrigger: { trigger: panel, containerAnimation: movement, start: 'left 78%', toggleActions: 'play none none reverse' } }));
+      if (inner && panel !== panels[0]) tweens.push(gsap.from(inner, { opacity: 0.65, y: 30, duration: 0.7, ease: motionConfig.ease.reveal, scrollTrigger: { trigger: panel, containerAnimation: movement, start: 'left 78%', toggleActions: 'play none none reverse' } }));
       if (visual) tweens.push(gsap.to(visual, { scale: 1.05, ease: 'none', scrollTrigger: { trigger: panel, containerAnimation: movement, start: 'left right', end: 'right left', scrub: true } }));
       return tweens;
     });
