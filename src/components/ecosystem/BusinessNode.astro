@@ -1,0 +1,20 @@
+---
+import { Scissors, Sparkles, Brush, Stethoscope, Flower2 } from '@lucide/astro';
+interface Props {
+  label: string;
+  description: string;
+  icon: 'scissors' | 'sparkles' | 'brush' | 'stethoscope' | 'flower';
+  position: string;
+  delay?: number;
+  mobile?: 'left' | 'top' | 'right' | 'hide';
+  tablet?: 'show' | 'hide';
+}
+const { label, description, icon, position, delay = 0, mobile = 'hide', tablet = 'show' } = Astro.props;
+const icons = { scissors: Scissors, sparkles: Sparkles, brush: Brush, stethoscope: Stethoscope, flower: Flower2 };
+const Icon = icons[icon];
+---
+<article class={`business-node business-node--mobile-${mobile} business-node--tablet-${tablet}`} style={`${position}--node-delay:${delay}s;`} data-business-node aria-label={`${label}: ${description}`}>
+  <div class="business-node__label"><strong>{label}</strong><small>{description}</small></div>
+  <div class="business-node__icon"><Icon size={15} strokeWidth={1.6}/></div>
+  <div class="business-node__line"></div><div class="business-node__pin"><i></i><b></b></div>
+</article>

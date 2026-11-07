@@ -1,0 +1,19 @@
+---
+const moments = [
+  ['Antes de abrir', 'Tu equipo ve el día completo, los espacios disponibles y quién atiende cada turno.'],
+  ['Mientras atendés', 'Las reservas entran ordenadas y los recordatorios salen sin interrumpir tu ritmo.'],
+  ['Al cerrar', 'La agenda queda lista para mañana: menos mensajes pendientes, más control.'],
+];
+---
+<section class="experience" id="experiencia" data-experience>
+  <div class="experience__inner">
+    <div class="experience__head" data-reveal-item>
+      <p class="section-tag">La experiencia Turnate</p>
+      <h2>El sistema acompaña tu jornada.<br/><em>No la complica.</em></h2>
+    </div>
+    <ol class="experience-timeline">
+      {moments.map(([time, text], index) => <li data-reveal-item><span>0{index + 1}</span><div><h3>{time}</h3><p>{text}</p></div></li>)}
+    </ol>
+    <a class="section-cta section-cta--light" href="#demo" data-reveal-item>Solicitar demo <span>↗</span></a>
+  </div>
+</section>

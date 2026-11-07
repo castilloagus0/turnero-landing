@@ -1,0 +1,24 @@
+---
+const businesses = ['Lumen estudio', 'Norte barbería', 'Marea bienestar', 'Clínica central', 'Nido estética'];
+const testimonials = [
+  ['“Ahora cada persona del equipo sabe qué viene después. La agenda dejó de ser una conversación infinita.”', 'Marina · Centro de estética'],
+  ['“Los recordatorios nos sacaron mucho trabajo manual y las personas llegan con otra claridad.”', 'Tomás · Barbería'],
+  ['“Podemos cuidar la atención sin estar pendientes del teléfono todo el día.”', 'Lucía · Consultorio'],
+];
+---
+<section class="social-proof" id="clientes" data-social-proof>
+  <div class="social-proof__inner">
+    <div class="proof-intro" data-reveal-item>
+      <p class="section-tag">Clientes que confían</p>
+      <h2>Una agenda más clara cambia <em>todo el día.</em></h2>
+      <p>Turnate acompaña a negocios que quieren atender mejor, responder menos mensajes y trabajar con una vista compartida.</p>
+      <a class="section-cta" href="#demo">Solicitar demo <span>↗</span></a>
+    </div>
+    <div class="proof-logos" aria-label="Negocios que pueden usar Turnate" data-reveal-item>
+      {businesses.map((business) => <span>{business}</span>)}
+    </div>
+    <div class="testimonials" aria-label="Reseñas de ejemplo" data-reveal-item>
+      {testimonials.map(([quote, author]) => <figure><blockquote>{quote}</blockquote><figcaption>{author}</figcaption></figure>)}
+    </div>
+  </div>
+</section>

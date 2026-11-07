@@ -1,0 +1,18 @@
+---
+import BusinessNode from './BusinessNode.astro';
+import earthHero from '../../assets/images/turnate-earth-hero.png';
+const nodes = [
+  { label: 'Barberías', description: 'Reservas · agenda · recordatorios', icon: 'scissors', position: '--x:17%;--y:27%;', delay: .1, mobile: 'left', tablet: 'show' },
+  { label: 'Peluquerías', description: 'Reservas · agenda · recordatorios', icon: 'sparkles', position: '--x:78%;--y:28%;', delay: .8, mobile: 'hide', tablet: 'show' },
+  { label: 'Centros de estética', description: 'Reservas · agenda · recordatorios', icon: 'sparkles', position: '--x:46%;--y:10%;', delay: .35, mobile: 'top', tablet: 'show' },
+  { label: 'Centros de belleza', description: 'Agenda · clientes · automatización', icon: 'brush', position: '--x:61%;--y:40%;', delay: 1.2, mobile: 'hide', tablet: 'hide' },
+  { label: 'Consultorios', description: 'Turnos · disponibilidad · avisos automáticos', icon: 'stethoscope', position: '--x:30%;--y:59%;', delay: .55, mobile: 'right', tablet: 'show' },
+  { label: 'Spa & bienestar', description: 'Reservas · agenda · recordatorios', icon: 'flower', position: '--x:70%;--y:60%;', delay: 1.6, mobile: 'hide', tablet: 'hide' },
+] as const;
+---
+<div class="planet-system" id="negocios" data-planet-system>
+  <div class="planet" aria-hidden="true">
+    <img class="planet__surface" src={earthHero.src} width={earthHero.width} height={earthHero.height} alt="" fetchpriority="high" decoding="async" />
+  </div>
+  {nodes.map((node) => <BusinessNode {...node} />)}
+</div>
