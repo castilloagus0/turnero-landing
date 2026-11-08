@@ -10,6 +10,11 @@ import { industries } from '../../data/industries';
     <div class="container industries-motion__footer"><p><span data-horizontal-current>01</span> / {String(industries.length).padStart(2, '0')}</p><div class="horizontal-progress"><i data-horizontal-progress></i></div><span>SCROLL PARA EXPLORAR</span></div>
   </div>
   <div class="industries-mobile section"><div class="container industries-head industries-heading"><div class="industries-heading__main"><SectionEyebrow>Para cada forma de trabajar</SectionEyebrow><h2 class="display industries-title">Una agenda.<br/><em>Mil formas de usarla.</em></h2></div><p class="industries-intro">El mismo sistema, pensado para respetar el ritmo particular de cada negocio.</p></div><div class="industry-wrap"><IndustriesCarousel client:visible /></div></div>
+  <noscript><style is:inline>
+    .industries-mobile .swiper { overflow-x: auto; scroll-snap-type: x mandatory; }
+    .industries-mobile .swiper-slide { width: calc(100% - 18px); scroll-snap-align: start; }
+    .industries-mobile .carousel-controls { display: none; }
+  </style></noscript>
 </section>
 
 <style>

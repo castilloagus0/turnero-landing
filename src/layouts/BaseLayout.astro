@@ -8,10 +8,11 @@ interface Props {
   description: string;
   robots?: string;
   image?: string;
+  mobileHeroImage?: string;
   structuredData?: boolean;
 }
 
-const { title, description, robots = 'index, follow', image, structuredData = true } = Astro.props;
+const { title, description, robots = 'index, follow', image, mobileHeroImage, structuredData = true } = Astro.props;
 // A public origin is only available after configuring site in astro.config.mjs.
 const pathname = Astro.url.pathname === '/' ? '/' : `${Astro.url.pathname.replace(/\/+$/, '')}/`;
 const canonical = Astro.site ? new URL(pathname, Astro.site).href : undefined;
@@ -31,6 +32,7 @@ const softwareData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {mobileHeroImage && <link rel="preload" as="image" href={mobileHeroImage} media="(max-width: 767px)" fetchpriority="high" />}
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
@@ -42,6 +44,7 @@ const softwareData = {
     <meta property="og:locale" content="es_AR" />
     {canonical && <meta property="og:url" content={canonical} />}
     {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content={title} />}
     <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

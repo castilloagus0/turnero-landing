@@ -10,6 +10,20 @@ import '../../styles/navigation-a11y.css';
     </div>
     <a class="header-cta" href="/#demo">Probar Turnate</a>
     <button class="menu-trigger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
+    <noscript>
+      <style is:inline>
+        .nojs-menu { display: none; }
+        @media (max-width: 780px) {
+          .site-header .menu-trigger { display: none; }
+          .nojs-menu { position: relative; display: block; }
+          .nojs-menu summary { display: grid; min-width: 44px; min-height: 44px; place-items: center; color: #f5f7fa; cursor: pointer; list-style: none; }
+          .nojs-menu summary::-webkit-details-marker { display: none; }
+          .nojs-menu nav { position: absolute; top: 100%; right: 0; display: grid; min-width: 220px; padding: 12px 20px; border: 1px solid #315272; border-radius: 8px; background: #061328; }
+          .nojs-menu nav a { padding: 12px 0; color: #f5f7fa; }
+        }
+      </style>
+      <details class="nojs-menu"><summary aria-label="Abrir menú">☰</summary><nav aria-label="Navegación móvil"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a><a href="/#demo">Probar Turnate</a></nav></details>
+    </noscript>
   </nav>
   <div class="menu-overlay" aria-hidden="true" data-menu-overlay data-lenis-prevent></div>
   <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-modal="true" aria-hidden="true" inert data-mobile-menu data-lenis-prevent>

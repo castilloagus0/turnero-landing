@@ -164,18 +164,6 @@ export function initMotion() {
           ease: 'none',
           scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
         });
-        gsap.to(ecosystem.querySelector('[data-eco-grid]'), {
-          y: mobile ? -16 : -50,
-          scale: mobile ? 1 : 1.05,
-          ease: 'none',
-          scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
-        });
-        gsap.to(ecosystem.querySelector('[data-eco-glow]'), {
-          y: mobile ? -24 : -70,
-          x: mobile ? 0 : -45,
-          ease: 'none',
-          scrollTrigger: { trigger: ecosystem, start: 'top bottom', end: 'bottom top', scrub: 1 },
-        });
       });
       mainCleanups.push(() => ecoMedia.revert());
       gsap.from(ecosystem.querySelectorAll('.floating-card'), {

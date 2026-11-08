@@ -2,4 +2,4 @@
 interface Props { type: string; title: string; body: string; variant: string; }
 const { type, title, body, variant } = Astro.props;
 ---
-<article class={`floating-card liquid-glass ${variant}`}><span>{type}</span><strong>{title}</strong><p>{body}</p><i></i></article>
+<article class={`floating-card ${variant}`}><span>{type}</span><strong>{title}</strong><p>{body}</p></article>

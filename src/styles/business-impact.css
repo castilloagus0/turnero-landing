@@ -27,14 +27,14 @@
 .impact-result small, .impact-result strong { display: block; }
 .impact-result small { margin: 1px 0 8px; color: #8abbe9; font-size: 9px; letter-spacing: .14em; }
 .impact-result strong { color: #dbeaf9; font-size: 12px; font-weight: 500; line-height: 1.55; }
-.impact-stage { position: relative; display: flex; min-width: 0; min-height: 460px; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; border: 1px solid rgba(138,199,255,.15); border-radius: 4px; background: radial-gradient(ellipse at 50% 50%, rgba(31,111,255,.13), transparent 57%), linear-gradient(145deg, #0a1d35, #06101e 80%); }
-.stage-orbit { position: absolute; z-index: -1; top: 50%; left: 50%; width: 420px; height: 420px; border: 1px solid rgba(137,191,255,.1); border-radius: 50%; transform: translate(-50%,-50%); }
+.impact-stage { position: relative; display: flex; min-width: 0; min-height: 460px; align-items: center; justify-content: center; overflow: hidden; isolation: isolate; border-top: 1px solid rgba(138,199,255,.15); background: transparent; }
+.stage-orbit { display: none; }
 .stage-orbit--two { width: 620px; height: 620px; }
 .stage-label, .stage-caption { position: absolute; z-index: 4; color: rgba(174,211,246,.55); font-size: 9px; font-weight: 600; letter-spacing: .13em; }
 .stage-label { top: 25px; left: 28px; display: flex; align-items: center; gap: 9px; }
 .stage-label span { width: 6px; height: 6px; border-radius: 50%; background: #6bb3ff; box-shadow: 0 0 12px #6bb3ff; }
 .stage-caption { right: 15px; bottom: 12px; left: 15px; margin: 0; color: rgba(204,225,246,.8); text-align: center; font-size: 9px; line-height: 1.3; letter-spacing: .05em; }
-.message-preview { position: relative; z-index: 1; width: 255px; margin: 26px 90px 0 0; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; background: #d7d1c3; box-shadow: 0 28px 60px rgba(0,0,0,.42); transform: rotate(-2deg); }
+.message-preview { position: relative; z-index: 1; width: 280px; margin: 26px 90px 0 0; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 8px; background: #d7d1c3; box-shadow: 0 18px 45px rgba(0,0,0,.3); }
 .message-preview__header { display: flex; height: 51px; align-items: center; gap: 9px; padding: 8px 12px; background: #203330; }
 .message-avatar { display: grid; width: 29px; height: 29px; place-items: center; border-radius: 50%; background: #49635e; color: #e9f3ec; font-size: 9px; }
 .message-preview__header b, .message-preview__header small { display: block; color: #edf7f1; font-size: 10px; }
@@ -166,4 +166,74 @@
 }
 @media (prefers-reduced-motion: reduce) {
  .impact-tabs button, .impact-tabs button::after, .impact-close a { transition: none; }
+}
+
+/* Mobile is composed around one product example at a time. */
+@media (max-width: 767px) {
+ .impact { padding: 68px 0 60px; background: radial-gradient(ellipse at 85% 35%, #0a2142 0%, #061328 35%, #02050a 74%); }
+ .impact-inner { width: calc(100% - 40px); }
+ .impact-intro__row { display: block; margin: 18px 0 28px; }
+ .impact-intro h2 { font-size: clamp(2.7rem, 10.5vw, 4.3rem); line-height: .96; }
+ .impact-intro__row > p { max-width: 36ch; margin: 15px 0 0; font-size: 14px; line-height: 1.55; }
+ .impact-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .impact-tabs button { min-height: 52px; padding: 13px 12px 13px 0; gap: 10px; font-size: 13px; }
+ .impact-tabs button:nth-child(-n+2) { border-bottom: 1px solid rgba(178,214,255,.12); }
+ .impact-tabs button::after { right: 12px; }
+ .impact-panel { display: flex; min-height: 0; flex-direction: column; align-items: stretch; gap: 28px; padding: 30px 0 34px; }
+ .impact-panel[hidden] { display: none; }
+ .impact-copy { padding: 0; }
+ .impact-copy h3 { margin: 12px 0; font-size: clamp(2.45rem, 9vw, 3.65rem); line-height: 1; }
+ .impact-copy > p:not(.impact-index) { max-width: 40ch; font-size: 14px; line-height: 1.6; }
+ .impact-result { align-items: center; margin-top: 19px; gap: 12px; }
+ .impact-result > span { width: 30px; height: 30px; }
+ .impact-result small { margin-bottom: 4px; }
+ .impact-result strong { font-size: 12px; }
+
+ /* Avoid nesting a small phone inside another large framed card. */
+ .impact-stage { min-height: 0; }
+ .stage-automation, .stage-analytics, .stage-loyalty, .stage-growth { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+ .stage-automation, .stage-loyalty, .stage-growth { overflow: visible; border: 0; background: none; }
+ .stage-analytics { padding: 18px; }
+ .stage-orbit { display: none; }
+ .stage-label, .stage-caption { position: static; }
+ .stage-label { font-size: 9px; }
+ .stage-caption { color: rgba(204,225,246,.8); font-size: 9px; text-align: left; }
+ .message-preview { width: min(100%, 340px); margin: 0; transform: none; border-radius: 8px; box-shadow: 0 16px 38px rgba(0,0,0,.26); }
+ .message-preview__header { height: 48px; }
+ .message-preview__body { padding: 11px; }
+ .message-bubble { font-size: 11px; line-height: 1.48; }
+ .message-bubble > strong { font-size: 13px; }
+ .message-bubble > small, .message-bubble > time { font-size: 9px; }
+ .message-link { font-size: 11px; }
+ .email-preview { position: static; align-self: flex-end; width: min(83%, 255px); margin-top: -18px; padding: 11px 12px; }
+ .email-preview div > span { display: block; }
+ .email-preview small { font-size: 8px; }
+ .email-preview strong { font-size: 11px; }
+
+ /* A readable crop of the example rather than a shrunk desktop dashboard. */
+ .analytics-window { width: 100%; transform: none; box-shadow: 0 16px 32px #02050a55; }
+ .analytics-content { padding: 14px; }
+ .analytics-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .analytics-metrics > div { padding: 11px 10px; }
+ .analytics-metrics > div:nth-child(3) { display: none; }
+ .analytics-metrics small { font-size: 9px; }
+ .analytics-metrics strong { font-size: 20px; }
+ .analytics-chart svg { height: 90px; }
+ .analytics-callout { display: none; }
+
+ /* Keep each conceptual preview together, with the concept label visible. */
+ .loyalty-card, .growth-card { width: 100%; margin: 0; padding: 21px; box-shadow: none; }
+ .loyalty-card { border-radius: 8px 8px 0 0; }
+ .loyalty-card > p { margin: 26px 0 14px; font-size: clamp(2rem, 8vw, 2.7rem); }
+ .review-note { margin-top: 24px; }
+ .loyalty-benefit { position: static; width: 100%; margin-top: -13px; padding: 18px 21px; border-radius: 0 0 8px 8px; background: #10283f; color: #f5f7fa; box-shadow: none; }
+ .loyalty-benefit small, .loyalty-benefit p { color: #a8c6df; }
+ .loyalty-benefit div { background: #1b3b5b; color: #d5eaff; }
+ .growth-card { border-radius: 8px; }
+ .growth-day { margin: 22px 0 17px; }
+ .growth-day strong { font-size: 2.6rem; }
+ .growth-discount > strong { font-size: 4.5rem; }
+ .growth-note { display: none; }
+ .impact-close { align-items: start; flex-direction: column; gap: 15px; padding-top: 24px; }
+ .impact-close a { min-height: 44px; }
 }

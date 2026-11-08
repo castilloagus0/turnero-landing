@@ -83,21 +83,21 @@
 .main-sections .trust-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 
 /* Before and after: a familiar chat alongside an ordered workflow. */
-.main-sections .change-grid { gap: 14px; border: 0; }
+.main-sections .change-grid { gap: clamp(36px, 6vw, 90px); border-top: 1px solid rgba(160, 202, 244, .2); }
 .main-sections .change-card,
 .main-sections .change-card--before,
 .main-sections .change-card--after {
   display: flex;
-  min-height: 570px;
+  min-height: 0;
   flex-direction: column;
-  padding: clamp(24px, 3vw, 36px);
-  border: 1px solid rgba(160, 202, 244, .14);
-  border-radius: 14px;
-  background: linear-gradient(145deg, rgba(15, 32, 51, .72), rgba(6, 14, 24, .82));
+  padding: 28px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 .main-sections .change-label { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: rgba(165, 206, 255, .55); letter-spacing: .12em; }
 .main-sections .change-label span { color: #a5ceff; }
-.main-sections .chat-preview { overflow: hidden; border: 1px solid rgba(170, 215, 255, .12); border-radius: 12px; background: #0a1519; box-shadow: 0 16px 45px rgba(0, 0, 0, .2); }
+.main-sections .chat-preview { overflow: hidden; border: 1px solid rgba(170, 215, 255, .12); border-radius: 5px; background: #0a1519; box-shadow: none; }
 .main-sections .chat-preview__header { display: flex; min-height: 64px; align-items: center; gap: 11px; padding: 12px 15px; background: #172b30; }
 .main-sections .chat-preview__avatar { display: grid; flex: 0 0 auto; width: 36px; height: 36px; place-items: center; border-radius: 50%; background: #365452; color: #c1e4dc; }
 .main-sections .chat-preview__header strong,
@@ -111,7 +111,7 @@
 .main-sections .chat-preview__messages small { flex: 0 0 auto; color: #9eb5ae; font-size: 9px; }
 .main-sections .change-card h3 { margin: auto 0 9px; padding-top: 28px; color: #f5f7fa; font: 400 clamp(1.6rem, 2.2vw, 2rem) / 1.05 var(--display); }
 .main-sections .change-card > p:last-child { max-width: 410px; color: rgba(235, 246, 255, .65); line-height: 1.6; }
-.main-sections .change-card__result { display: flex; min-height: 292px; flex-direction: column; justify-content: center; padding: 22px; border: 1px solid rgba(153, 205, 255, .12); border-radius: 12px; background: radial-gradient(circle at 85% 10%, rgba(65, 139, 209, .12), transparent 45%), rgba(4, 13, 24, .55); }
+.main-sections .change-card__result { display: flex; min-height: 292px; flex-direction: column; justify-content: center; padding: 0; border: 0; border-radius: 0; background: transparent; }
 .main-sections .change-card__symbol { display: grid; width: 39px; height: 39px; place-items: center; border: 1px solid rgba(138, 199, 255, .3); border-radius: 50%; color: #a5ceff; }
 .main-sections .change-card__result > p { margin: 15px 0; color: #f5f7fa; font: 400 2.1rem / .95 var(--display); letter-spacing: -.035em; }
 .main-sections .change-card__result > p em { color: #b8daff; }

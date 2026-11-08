@@ -1,0 +1,110 @@
+/* A mobile composition around the same headline and planet used on desktop. */
+@media (max-width: 767px) {
+  .site-header .nav {
+    min-height: 68px;
+    height: 68px;
+    padding: max(10px, env(safe-area-inset-top)) 20px 10px;
+  }
+  .site-header .menu-trigger { min-width: 44px; min-height: 44px; }
+  .site-header .mobile-menu {
+    width: min(88vw, 360px);
+    padding: max(20px, env(safe-area-inset-top)) 24px max(24px, env(safe-area-inset-bottom));
+    background: #06111f;
+    border-left: 1px solid rgba(138, 199, 255, .17);
+  }
+  .site-header .mobile-menu__links { gap: 8px; margin-top: clamp(32px, 8svh, 72px); }
+  .site-header .mobile-menu__links a {
+    display: flex;
+    align-items: center;
+    min-height: 54px;
+    border-bottom: 1px solid rgba(138, 199, 255, .13);
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+  .site-header .mobile-menu__cta { min-height: 52px; align-items: center; }
+
+  section.hero {
+    height: max(100svh, 650px);
+    min-height: 650px;
+    background: #02050a;
+  }
+  section.hero::before {
+    position: absolute;
+    inset: 46% 0 0;
+    z-index: 0;
+    content: '';
+    pointer-events: none;
+    background: var(--hero-poster-mobile) center top / cover no-repeat;
+  }
+  section.hero .hero-video { display: none; }
+  section.hero .hero-overlay {
+    background: linear-gradient(180deg, #02050a 0%, #02050a 40%, rgba(2, 5, 10, .45) 51%, transparent 67%, rgba(2, 5, 10, .4) 100%);
+  }
+  section.hero .hero-content {
+    top: clamp(94px, 12svh, 118px);
+    right: 0;
+    bottom: auto;
+    left: 0;
+    align-items: center;
+    padding: 0 20px;
+  }
+  section.hero .hero-kicker { margin-bottom: 16px; font-size: 10px; }
+  section.hero h1 {
+    max-width: 580px;
+    font-size: clamp(2.45rem, 11vw, 4.2rem);
+    line-height: .98;
+    letter-spacing: -.038em;
+    text-wrap: balance;
+    text-shadow: 0 2px 20px rgba(2, 5, 10, .45);
+  }
+  section.hero .hero-description {
+    max-width: 380px;
+    margin: 17px auto 0;
+    color: rgba(235, 246, 255, .74);
+    font-size: 14px;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+  section.hero .hero-actions { flex-direction: column; gap: 4px; margin-top: 22px; }
+  section.hero .primary-button { min-height: 50px; padding: 14px 27px; box-shadow: none; }
+  section.hero .text-button { min-height: 44px; }
+  section.hero .hero-business-nodes {
+    inset: 55% 20px 16px;
+    display: block;
+    pointer-events: none;
+  }
+  section.hero .hero-business-nodes li {
+    position: absolute;
+    display: inline-flex;
+    gap: 7px;
+    min-height: 36px;
+    padding: 8px 10px;
+    border-color: rgba(178, 218, 255, .32);
+    border-radius: 5px;
+    background: rgba(4, 19, 37, .9);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .25);
+    font-size: 11px;
+  }
+  section.hero .hero-business-nodes li::after {
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    width: 1px;
+    height: 17px;
+    content: '';
+    background: rgba(165, 206, 255, .65);
+  }
+  section.hero .hero-business-nodes svg { width: 16px; height: 16px; }
+  section.hero .hero-business-nodes li:nth-child(1) { left: 2%; top: 25%; }
+  section.hero .hero-business-nodes li:nth-child(2) { right: 4%; top: 8%; }
+  section.hero .hero-business-nodes li:nth-child(3) { right: 12%; bottom: 18%; }
+
+  @media (max-height: 700px) {
+    section.hero .hero-content { top: 84px; }
+    section.hero .hero-kicker { margin-bottom: 12px; }
+    section.hero h1 { font-size: clamp(2.35rem, 10.7vw, 3.35rem); }
+    section.hero .hero-description { margin-top: 12px; font-size: 13px; line-height: 1.45; }
+    section.hero .hero-actions { margin-top: 13px; gap: 0; }
+    section.hero::before { top: 49%; }
+    section.hero .hero-overlay { background: linear-gradient(180deg, #02050a 0%, #02050a 44%, rgba(2, 5, 10, .5) 55%, transparent 72%, rgba(2, 5, 10, .4) 100%); }
+  }
+}

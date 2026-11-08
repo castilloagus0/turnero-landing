@@ -2,18 +2,42 @@
 import HeroContent from './HeroContent.astro';
 import MobileBusinessNodes from './MobileBusinessNodes.astro';
 import earthPoster from '../../assets/images/turnate-earth-hero.webp';
+import mobileEarthPoster from '../../assets/images/turnate-earth-mobile.webp';
+import '../../styles/mobile-hero.css';
 ---
-<section class="hero" id="inicio" data-hero style={`--hero-poster: url('${earthPoster.src}')`}>
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={earthPoster.src} aria-hidden="true" data-hero-video data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4"></video>
+<section class="hero" id="inicio" data-hero style={`--hero-poster: url('${earthPoster.src}'); --hero-poster-mobile: url('${mobileEarthPoster.src}')`}>
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video data-poster={earthPoster.src} data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4"></video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <HeroContent />
   <MobileBusinessNodes />
-  <div class="hero-indicator" aria-hidden="true"><span></span><p>Experiencia<br />en movimiento</p></div>
+  <div class="hero-indicator" aria-hidden="true"><span></span><p>Reservas · Agenda<br />Comunicación</p></div>
 </section>
 <script is:inline>
-  // Keep the still poster when the visitor asks for reduced motion, without fetching the video.
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const video = document.querySelector('[data-hero-video]');
-    if (video?.dataset.src) video.src = video.dataset.src;
+  // The desktop video is not visible on mobile; don't fetch it there.
+  const video = document.querySelector('[data-hero-video]');
+  if (video) {
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateVideo = () => {
+      const canAnimate = desktop.matches && !reduced.matches;
+      video.hidden = !canAnimate;
+      if (canAnimate) {
+        if (!video.hasAttribute('poster') && video.dataset.poster) video.poster = video.dataset.poster;
+        if (!video.hasAttribute('src') && video.dataset.src) video.src = video.dataset.src;
+        video.autoplay = true;
+        if (!document.hidden) video.play().catch(() => {});
+      } else {
+        video.pause();
+        if (video.hasAttribute('src')) { video.removeAttribute('src'); video.load(); }
+        video.removeAttribute('poster');
+      }
+    };
+    updateVideo();
+    desktop.addEventListener('change', updateVideo);
+    reduced.addEventListener('change', updateVideo);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) video.pause();
+      else if (desktop.matches && !reduced.matches) video.play().catch(() => {});
+    });
   }
 </script>

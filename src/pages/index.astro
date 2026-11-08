@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/main-sections.css';
+import '../styles/mobile-story.css';
 import HeroSection from '../components/hero/Hero.astro';
 import EcosystemSection from '../components/ecosystem/EcosystemSection.astro';
 import BusinessImpactShowcase from '../components/product-showcase/BusinessImpactShowcase.astro';
@@ -10,8 +11,10 @@ import HowItWorksSection from '../components/sections/HowItWorksSection.astro';
 import TrustSection from '../components/sections/TrustSection.astro';
 import DemoSection from '../components/sections/DemoSection.astro';
 import ReviewsSection from '../components/sections/ReviewsSection.astro';
+import socialImage from '../assets/images/turnate-earth-hero.webp';
+import mobileHeroImage from '../assets/images/turnate-earth-mobile.webp';
 ---
-<BaseLayout title="Turnate — Gestión de turnos online para tu negocio" description="Gestioná reservas online, agenda y recordatorios por WhatsApp y email desde un solo lugar. Turnate simplifica los turnos de negocios y profesionales.">
+<BaseLayout title="Turnate — Gestión de turnos online para tu negocio" description="Gestioná reservas online, agenda y recordatorios por WhatsApp y email desde un solo lugar. Turnate simplifica los turnos de negocios y profesionales." image={socialImage.src} mobileHeroImage={mobileHeroImage.src}>
   <HeroSection />
   <BusinessImpactShowcase />
   <EcosystemSection />

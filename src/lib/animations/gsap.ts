@@ -1,15 +1,14 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
-import { Flip } from 'gsap/Flip';
 
 let registered = false;
 
 export function registerMotionPlugins() {
   if (!registered) {
-    gsap.registerPlugin(ScrollTrigger, SplitText, Flip);
+    gsap.registerPlugin(ScrollTrigger, SplitText);
     registered = true;
   }
 }
 
-export { gsap, ScrollTrigger, SplitText, Flip };
+export { gsap, ScrollTrigger, SplitText };

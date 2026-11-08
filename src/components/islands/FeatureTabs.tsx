@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Flip, gsap, registerMotionPlugins } from '../../lib/animations/gsap';
+import { gsap, registerMotionPlugins } from '../../lib/animations/gsap';
+import { Flip } from 'gsap/Flip';
 import { features } from '../../data/features';
 
 function ProductMockup({ active }: { active: string }) {
@@ -26,6 +27,7 @@ export default function FeatureTabs() {
 
   useLayoutEffect(() => {
     registerMotionPlugins();
+    gsap.registerPlugin(Flip);
     positionIndicator(active);
     const observer = new ResizeObserver(() => positionIndicator(activeRef.current));
     if (listRef.current) observer.observe(listRef.current);

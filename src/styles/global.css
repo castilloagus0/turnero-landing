@@ -486,7 +486,6 @@ button { font: inherit; cursor: pointer; }
   left: -13vw;
   width: 125vw;
   height: 44vw;
-  animation: orbitalDrift 18s ease-in-out infinite alternate;
   transform: rotate(-17deg);
 }
 .orbital--two {
@@ -568,6 +567,24 @@ button { font: inherit; cursor: pointer; }
 .card--beauty { --r: 5deg; top: 32%; right: 11%; }
 .card--clinic { --r: -3deg; bottom: 17%; left: 20%; }
 .card--analytics { --r: 4deg; right: 18%; bottom: 17%; }
+
+@media (min-width: 781px) and (max-width: 1023px) {
+  .floating-cards { inset: auto 8% 7%; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 36px; }
+  .floating-card { position: static; width: auto; padding: 12px 0 0; border-top: 1px solid rgba(165, 211, 255, .32); transform: none; }
+  .floating-card span { margin-bottom: 8px; }
+  .floating-card p { font-size: 11px; }
+}
+
+@media (min-width: 1024px) {
+  .ecosystem-inner { width: min(1280px, calc(100% - 96px)); margin-top: 0; padding-right: 46%; text-align: left; }
+  .ecosystem-inner .section-tag { justify-content: flex-start; }
+  .ecosystem h2 { font-size: clamp(3.4rem, 5vw, 5.5rem); }
+  .ecosystem-copy { margin-left: 0; }
+  .floating-cards { inset: 25% max(48px, calc((100vw - 1280px) / 2)) 22% 59%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px 28px; align-content: center; }
+  .floating-card { position: static; width: auto; padding: 15px 0 0; border-top: 1px solid rgba(165, 211, 255, .32); border-radius: 0; transform: none; }
+  .floating-card span { margin-bottom: 12px; font-size: 9px; }
+  .floating-card p { font-size: 12px; line-height: 1.5; }
+}
 
 /* Product */
 .product-section {
@@ -1056,12 +1073,13 @@ button { font: inherit; cursor: pointer; }
   font-size: clamp(3.5rem, 7.65vw, 110px);
   line-height: .9;
   letter-spacing: -.025em;
-  text-shadow: 0 0 40px rgba(255, 255, 255, .4), 0 0 80px rgba(255, 255, 255, .2), 0 0 120px rgba(255, 255, 255, .1);
+  text-shadow: 0 2px 24px rgba(2, 5, 10, .55);
 }
 .hero-description { max-width: 576px; margin: 28px auto 0; color: rgba(255, 255, 255, .7); font-size: 16px; line-height: 1.5; }
 .hero-actions { margin-top: 36px; }
 .hero .primary-button,
-.header-cta { padding: 14px 32px; background: #fff; color: #000; font-size: 14px; font-weight: 500; letter-spacing: .025em; box-shadow: 0 0 20px rgba(255, 255, 255, .3), 0 0 40px rgba(255, 255, 255, .1); }
+.header-cta { padding: 14px 26px; border-radius: 5px; background: #fff; color: #07101e; font-size: 14px; font-weight: 600; letter-spacing: 0; box-shadow: none; }
+.hero .primary-button:hover, .header-cta:hover { box-shadow: none; }
 .hero .primary-button::after { display: none; }
 .hero-indicator { position: absolute; z-index: 2; bottom: 32px; left: 32px; display: flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .6); }
 .hero-indicator > span { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(255, 255, 255, .2); border-radius: 50%; }

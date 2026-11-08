@@ -5,6 +5,7 @@ export function createTextReveals(scope: ParentNode = document) {
   const cleanups: Array<() => void> = [];
 
   scope.querySelectorAll<HTMLElement>('[data-split]').forEach((element) => {
+    if (window.scrollY > 0 && element.getBoundingClientRect().top <= window.innerHeight * .82) return;
     const split = SplitText.create(element, { type: 'lines', mask: 'lines', aria: 'auto' });
     const isHero = element.closest('[data-hero]');
     const tween = gsap.from(split.lines, {

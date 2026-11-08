@@ -47,11 +47,20 @@ export function createHorizontalScroll(section: HTMLElement) {
       return tweens;
     });
 
-    const observer = new ResizeObserver(() => ScrollTrigger.refresh());
+    let refreshFrame = 0;
+    let previousWidth = viewport.clientWidth;
+    const observer = new ResizeObserver(() => {
+      const width = viewport.clientWidth;
+      if (width === previousWidth) return;
+      previousWidth = width;
+      cancelAnimationFrame(refreshFrame);
+      refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
+    });
     observer.observe(viewport);
 
     return () => {
       observer.disconnect();
+      cancelAnimationFrame(refreshFrame);
       panelTweens.forEach((tween) => tween.kill());
       movement.scrollTrigger?.kill();
       movement.kill();

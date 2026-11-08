@@ -1,0 +1,133 @@
+/* A compact, editorial rhythm for the story below the product showcase.
+   The desktop and tablet composition remains untouched. */
+@media (max-width: 767px) {
+  .ecosystem {
+    display: block;
+    min-height: 0;
+    padding: 72px 20px 76px;
+    background: radial-gradient(ellipse at 90% 85%, rgba(31, 111, 255, .15), transparent 45%), #02050a;
+  }
+  .ecosystem-inner {
+    width: min(100%, 520px);
+    margin: 0 auto;
+    text-align: left;
+  }
+  .ecosystem-inner .section-tag { justify-content: flex-start; }
+  .ecosystem h2 { font-size: clamp(2.8rem, 10.7vw, 4rem); line-height: .95; }
+  .ecosystem-copy { margin: 20px 0 0; font-size: 15px; line-height: 1.6; }
+  .ecosystem-grid { inset: 0; opacity: .1; }
+  .ecosystem-particles { opacity: .17; }
+  .ecosystem-glow, .ecosystem .orbital--two { display: none; }
+  .ecosystem .orbital--one { top: 45%; left: -22%; width: 140%; height: 45%; opacity: .35; animation: none; }
+  .ecosystem .floating-cards {
+    position: relative;
+    display: grid;
+    width: min(100%, 520px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 36px auto 0;
+  }
+  .ecosystem .floating-card {
+    position: static;
+    width: auto;
+    min-width: 0;
+    padding: 16px 0 0;
+    border: 0;
+    border-top: 1px solid rgba(165, 206, 255, .3);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    transform: none;
+  }
+  .ecosystem .floating-card span { margin-bottom: 10px; font-size: 9px; line-height: 1.4; }
+  .ecosystem .floating-card strong { font-size: 16px; letter-spacing: -.02em; }
+  .ecosystem .floating-card p { font-size: 11px; line-height: 1.4; }
+  .ecosystem .floating-card i,
+  .ecosystem .card--clinic,
+  .ecosystem .card--analytics { display: none; }
+
+  .main-sections { --container: calc(100% - 40px); }
+  .main-sections .section { padding-block: 72px; }
+  .main-sections .origin { padding-block: 72px; }
+  .main-sections .origin__layout { width: calc(100% - 40px); gap: 26px; }
+  .main-sections .origin__title { font-size: clamp(2.8rem, 10.7vw, 4rem); }
+  .main-sections .origin__identity { gap: 10px; padding-bottom: 14px; }
+  .main-sections .origin__identity img { width: 84px; height: 84px; }
+  .main-sections .origin__copy { padding-top: 18px; }
+  .main-sections .origin__copy p { font-size: 15px; line-height: 1.6; }
+  .main-sections .origin__link { min-height: 44px; align-items: center; margin-top: 15px; }
+
+  .main-sections .solution-title { font-size: clamp(2.8rem, 10.7vw, 4rem); line-height: .98; }
+  .main-sections .solution-head { margin-bottom: 30px; }
+  .main-sections .change-grid { gap: 0; }
+  .main-sections .change-card,
+  .main-sections .change-card--before,
+  .main-sections .change-card--after {
+    min-height: 0;
+    padding: 22px 0 26px;
+    border: 0;
+    border-top: 1px solid rgba(160, 202, 244, .2);
+    border-radius: 0;
+    background: transparent;
+  }
+  .main-sections .change-label { margin-bottom: 16px; }
+  .main-sections .chat-preview { border-radius: 6px; box-shadow: none; }
+  .main-sections .chat-preview__header { min-height: 52px; padding: 9px 12px; }
+  .main-sections .chat-preview__messages { min-height: 0; padding: 12px; }
+  .main-sections .chat-preview__messages p { font-size: 12px; }
+  .main-sections .change-card h3 { margin-top: 0; padding-top: 20px; font-size: 1.85rem; }
+  .main-sections .change-card > p:last-child { margin: 0; font-size: 14px; line-height: 1.55; }
+  .main-sections .change-card__result { min-height: 0; padding: 4px 0 0; border: 0; border-radius: 0; background: none; }
+  .main-sections .change-card__result > p { margin: 12px 0 16px; font-size: 2.2rem; }
+  .main-sections .benefit-list p { font-size: 13px; line-height: 1.4; }
+
+  .main-sections .industries-mobile { padding-block: 72px; }
+  .main-sections .industries-heading { gap: 18px; margin-bottom: 30px; }
+  .main-sections .industries-heading .industries-title { margin-top: 17px; font-size: clamp(2.8rem, 10.7vw, 4rem); line-height: .98; }
+  .main-sections .industries-intro { font-size: 15px; line-height: 1.55; }
+  .main-sections .industry-wrap { width: calc(100% - 20px); margin-left: 20px; }
+  .main-sections .industry-slide { min-height: 380px; border-radius: 3px; }
+  .main-sections .industry-copy { padding: 24px; }
+  .main-sections .industry-copy p { font-size: 14px; line-height: 1.5; }
+  .main-sections .carousel-controls { margin-top: 18px; }
+  .main-sections .round-control { min-width: 44px; min-height: 44px; }
+
+  .main-sections .journey .journey-heading { gap: 20px; }
+  .main-sections .journey .journey-title { margin-top: 18px; font-size: clamp(2.8rem, 10.7vw, 4rem); }
+  .main-sections .journey .journey-cta { min-height: 44px; padding-bottom: 8px; }
+  .main-sections .journey .journey-list { margin-top: 32px; }
+  .main-sections .journey .journey-step { grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding-block: 20px; }
+  .main-sections .journey .step-copy h3 { font-size: 1.8rem; }
+  .main-sections .journey .step-copy p { font-size: 14px; line-height: 1.55; }
+  .main-sections .journey .journey-end { margin-top: 22px; color: rgba(138, 199, 255, .75); }
+
+  .main-sections .reviews { padding: 72px 0; }
+  .main-sections .reviews .reviews__inner { width: calc(100% - 40px); }
+  .main-sections .reviews h2 { font-size: clamp(2.8rem, 10.7vw, 4rem); }
+  .main-sections .reviews .reviews__header { margin-bottom: 28px; }
+  .main-sections .reviews .reviews__source { margin-top: 22px; }
+  .main-sections .reviews .reviews__featured { padding-block: 24px; }
+  .main-sections .reviews .reviews__featured blockquote { margin: 18px 0 24px; font-size: clamp(1.9rem, 8vw, 2.8rem); }
+  .main-sections .reviews .reviews__item { padding-block: 22px; }
+  .main-sections .reviews .reviews__item blockquote { margin-top: 16px; font-size: 14px; line-height: 1.55; }
+  .main-sections .reviews .reviews__note { margin-top: 22px; }
+
+  .main-sections .demo .demo-layout { gap: 28px; }
+  .main-sections .demo::before { opacity: .15; pointer-events: none; }
+  .main-sections .demo .demo-title { margin: 18px 0; font-size: clamp(3.2rem, 12vw, 4.4rem); }
+  .main-sections .demo .demo-copy { margin: 0; font-size: 15px; line-height: 1.6; }
+  .main-sections .demo .field { margin: 13px 0; }
+  .main-sections .demo :is(input, select, textarea) { min-height: 44px; font-size: 16px; }
+  .main-sections .demo textarea { min-height: 70px; }
+  .main-sections .demo .button { min-height: 50px; }
+
+  .footer .footer-inner { width: calc(100% - 40px); padding-block: 34px; gap: 20px; }
+  .footer .footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; }
+  .footer .footer-nav a { min-height: 44px; }
+  .footer small { max-width: none; line-height: 1.6; }
+}
+
+@media (max-width: 359px) {
+  .ecosystem h2 { font-size: 2.5rem; }
+}
