@@ -28,13 +28,15 @@ const softwareData = {
 ---
 
 <!doctype html>
-<html lang="es-AR">
+<html lang="es-AR" data-type="software">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {mobileHeroImage && <link rel="preload" as="image" href={mobileHeroImage} media="(max-width: 767px)" fetchpriority="high" />}
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="page-type" content="software" />
+    <meta name="site-kind" content="software" />
     <meta name="robots" content={robots} />
     {canonical && <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={title} />

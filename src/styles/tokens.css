@@ -2,7 +2,10 @@
 :root {
   --bg: #02050a;
   --bg-deep: #061328;
+  --surface: #07111e;
+  --surface-raised: #0c2034;
   --ink: #f5f7fa;
+  --ink-soft: #e3effb;
   --muted: rgba(245, 247, 250, .58);
   --blue: #1f6fff;
   --electric: #47a3ff;
@@ -11,7 +14,11 @@
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: 'Inter', Arial, sans-serif;
   --radius-pill: 999px;
+  --radius-control: 5px;
+  --radius-surface: 8px;
+  --content-wide: 1280px;
   --content-width: 1120px;
   --section-space: clamp(100px, 14vw, 180px);
+  --section-space-compact: clamp(72px, 9vw, 120px);
   --focus-ring: #8ac7ff;
 }

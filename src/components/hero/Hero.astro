@@ -6,7 +6,7 @@ import mobileEarthPoster from '../../assets/images/turnate-earth-mobile.webp';
 import '../../styles/mobile-hero.css';
 ---
 <section class="hero" id="inicio" data-hero style={`--hero-poster: url('${earthPoster.src}'); --hero-poster-mobile: url('${mobileEarthPoster.src}')`}>
-  <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video data-poster={earthPoster.src} data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4"></video>
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster={earthPoster.src} aria-hidden="true" data-hero-video data-poster={earthPoster.src} data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4"></video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <HeroContent />
   <MobileBusinessNodes />

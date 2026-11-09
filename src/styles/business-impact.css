@@ -2,9 +2,8 @@
 .impact { position: relative; overflow: clip; padding: clamp(100px, 10vw, 150px) 0 80px; background: radial-gradient(ellipse at 77% 47%, #0a2142 0%, #061328 28%, #02050a 68%); color: #f5f7fa; scroll-margin-top: 80px; }
 .impact-anchor { position: absolute; top: 0; scroll-margin-top: 80px; }
 .impact-inner { width: min(1280px, calc(100% - 112px)); margin: auto; }
-.impact-eyebrow, .impact-index { display: flex; align-items: center; gap: 12px; margin: 0; color: #8ac7ff; font: 600 10px/1.2 var(--sans); letter-spacing: .16em; }
-.impact-eyebrow span { width: 29px; height: 1px; background: #6bb3ff; }
-.impact-intro__row { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin: 25px 0 44px; }
+.impact-index { display: flex; align-items: center; gap: 12px; margin: 0; color: #8ac7ff; font: 600 10px/1.2 var(--sans); letter-spacing: .16em; }
+.impact-intro__row { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin: 0 0 44px; }
 .impact-intro h2 { margin: 0; font: 400 clamp(3.1rem, 5.8vw, 5.9rem)/.91 var(--serif); letter-spacing: -.045em; }
 .impact-intro h2 em, .impact-copy h3 em, .impact-close em { color: #a5ceff; font-weight: 400; }
 .impact-intro__row > p { max-width: 310px; margin: 0 0 5px; color: rgba(235,246,255,.62); font-size: 14px; line-height: 1.7; }
@@ -128,7 +127,7 @@
 @media (max-width: 700px) {
  .impact { padding: 85px 0 65px; }
  .impact-inner { width: calc(100% - 40px); }
- .impact-intro__row { display: block; margin: 22px 0 30px; }
+ .impact-intro__row { display: block; margin: 0 0 30px; }
  .impact-intro h2 { font-size: clamp(2.9rem, 11vw, 4.5rem); }
  .impact-intro__row > p { max-width: 340px; margin-top: 18px; font-size: 13px; }
  .impact-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -172,7 +171,7 @@
 @media (max-width: 767px) {
  .impact { padding: 68px 0 60px; background: radial-gradient(ellipse at 85% 35%, #0a2142 0%, #061328 35%, #02050a 74%); }
  .impact-inner { width: calc(100% - 40px); }
- .impact-intro__row { display: block; margin: 18px 0 28px; }
+ .impact-intro__row { display: block; margin: 0 0 28px; }
  .impact-intro h2 { font-size: clamp(2.7rem, 10.5vw, 4.3rem); line-height: .96; }
  .impact-intro__row > p { max-width: 36ch; margin: 15px 0 0; font-size: 14px; line-height: 1.55; }
  .impact-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }

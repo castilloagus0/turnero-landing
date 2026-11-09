@@ -84,7 +84,7 @@
 
   .main-sections .industries-mobile { padding-block: 72px; }
   .main-sections .industries-heading { gap: 18px; margin-bottom: 30px; }
-  .main-sections .industries-heading .industries-title { margin-top: 17px; font-size: clamp(2.8rem, 10.7vw, 4rem); line-height: .98; }
+  .main-sections .industries-heading .industries-title { margin-top: 0; font-size: clamp(2.8rem, 10.7vw, 4rem); line-height: .98; }
   .main-sections .industries-intro { font-size: 15px; line-height: 1.55; }
   .main-sections .industry-wrap { width: calc(100% - 20px); margin-left: 20px; }
   .main-sections .industry-slide { min-height: 380px; border-radius: 3px; }
@@ -94,7 +94,7 @@
   .main-sections .round-control { min-width: 44px; min-height: 44px; }
 
   .main-sections .journey .journey-heading { gap: 20px; }
-  .main-sections .journey .journey-title { margin-top: 18px; font-size: clamp(2.8rem, 10.7vw, 4rem); }
+  .main-sections .journey .journey-title { margin-top: 0; font-size: clamp(2.8rem, 10.7vw, 4rem); }
   .main-sections .journey .journey-cta { min-height: 44px; padding-bottom: 8px; }
   .main-sections .journey .journey-list { margin-top: 32px; }
   .main-sections .journey .journey-step { grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding-block: 20px; }
@@ -115,7 +115,7 @@
 
   .main-sections .demo .demo-layout { gap: 28px; }
   .main-sections .demo::before { opacity: .15; pointer-events: none; }
-  .main-sections .demo .demo-title { margin: 18px 0; font-size: clamp(3.2rem, 12vw, 4.4rem); }
+  .main-sections .demo .demo-title { margin: 0 0 18px; font-size: clamp(3.2rem, 12vw, 4.4rem); }
   .main-sections .demo .demo-copy { margin: 0; font-size: 15px; line-height: 1.6; }
   .main-sections .demo .field { margin: 13px 0; }
   .main-sections .demo :is(input, select, textarea) { min-height: 44px; font-size: 16px; }
