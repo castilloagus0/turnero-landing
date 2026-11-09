@@ -12,8 +12,9 @@ import TrustSection from '../components/sections/TrustSection.astro';
 import DemoSection from '../components/sections/DemoSection.astro';
 import socialImage from '../assets/images/turnate-earth-hero.webp';
 import mobileHeroImage from '../assets/images/turnate-earth-mobile.webp';
+import { SITE_TITLE } from '../config/site';
 ---
-<BaseLayout title="Turnate — Gestión de turnos online para tu negocio" description="Gestioná reservas online, agenda y recordatorios por WhatsApp y email desde un solo lugar. Turnate simplifica los turnos de negocios y profesionales." image={socialImage.src} mobileHeroImage={mobileHeroImage.src}>
+<BaseLayout title={`${SITE_TITLE} — Gestión de turnos online para tu negocio`} description={`Gestioná reservas online, agenda y recordatorios por WhatsApp y email desde un solo lugar. ${SITE_TITLE} simplifica los turnos de negocios y profesionales.`} image={socialImage.src} mobileHeroImage={mobileHeroImage.src}>
   <HeroSection />
   <BusinessImpactShowcase />
   <EcosystemSection />

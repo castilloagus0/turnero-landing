@@ -1,6 +1,6 @@
-# Turnate — Landing SaaS
+# tymly — Landing SaaS
 
-Landing de Turnate, una plataforma de gestión de turnos. Está construida con Astro y React Islands para interacciones puntuales.
+Landing de tymly, una plataforma de gestión de turnos. Está construida con Astro y React Islands para interacciones puntuales.
 
 ## Tecnologías
 

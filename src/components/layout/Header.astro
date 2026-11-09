@@ -1,14 +1,15 @@
 ---
 import { X } from '@lucide/astro';
 import '../../styles/navigation-a11y.css';
+import { SITE_TITLE } from '../../config/site';
 ---
 <header class="site-header" data-header>
   <nav class="nav" aria-label="Navegación principal">
-    <a class="brand" href="/#inicio" aria-label="Turnate, inicio">turnate<span></span></a>
+    <a class="brand" href="/#inicio" aria-label={`${SITE_TITLE}, inicio`}>{SITE_TITLE}<span></span></a>
     <div class="nav-links" aria-label="Secciones principales">
       <a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a>
     </div>
-    <a class="header-cta" href="/#demo">Probar Turnate</a>
+    <a class="header-cta" href="/#demo">Probar {SITE_TITLE}</a>
     <button class="menu-trigger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span><span></span></button>
     <noscript>
       <style is:inline>
@@ -22,13 +23,13 @@ import '../../styles/navigation-a11y.css';
           .nojs-menu nav a { padding: 12px 0; color: #f5f7fa; }
         }
       </style>
-      <details class="nojs-menu"><summary aria-label="Abrir menú">☰</summary><nav aria-label="Navegación móvil"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a><a href="/#demo">Probar Turnate</a></nav></details>
+      <details class="nojs-menu"><summary aria-label="Abrir menú">☰</summary><nav aria-label="Navegación móvil"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a><a href="/#demo">Probar {SITE_TITLE}</a></nav></details>
     </noscript>
   </nav>
   <div class="menu-overlay" aria-hidden="true" data-menu-overlay data-lenis-prevent></div>
   <aside class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-modal="true" aria-hidden="true" inert data-mobile-menu data-lenis-prevent>
-    <div class="mobile-menu__top"><span class="brand">turnate<span></span></span><button type="button" aria-label="Cerrar menú" data-menu-close><X size={24} aria-hidden="true" /></button></div>
+    <div class="mobile-menu__top"><span class="brand">{SITE_TITLE}<span></span></span><button type="button" aria-label="Cerrar menú" data-menu-close><X size={24} aria-hidden="true" /></button></div>
     <nav class="mobile-menu__links" aria-label="Navegación móvil"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#beneficios">Beneficios</a></nav>
-    <a class="mobile-menu__cta" href="/#demo">Probar Turnate <span aria-hidden="true">↗</span></a>
+    <a class="mobile-menu__cta" href="/#demo">Probar {SITE_TITLE} <span aria-hidden="true">↗</span></a>
   </aside>
 </header>

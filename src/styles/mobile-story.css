@@ -118,6 +118,8 @@
   .main-sections .demo .demo-title { margin: 0 0 18px; font-size: clamp(3.2rem, 12vw, 4.4rem); }
   .main-sections .demo .demo-copy { margin: 0; font-size: 15px; line-height: 1.6; }
   .main-sections .demo .field { margin: 13px 0; }
+  .main-sections .demo .industry-trigger { min-height: 46px; font-size: 16px; }
+  .main-sections .demo .industry-choice { min-height: 44px; font-size: 15px; }
   .main-sections .demo :is(input, select, textarea) { min-height: 44px; font-size: 16px; }
   .main-sections .demo textarea { min-height: 70px; }
   .main-sections .demo .button { min-height: 50px; }

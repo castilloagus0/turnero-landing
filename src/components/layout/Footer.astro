@@ -1,7 +1,11 @@
+---
+import { SITE_TITLE } from '../../config/site';
+---
+
 <footer class="footer">
   <div class="footer-inner" data-reveal-group data-stagger="0.1">
-    <div data-reveal-item data-reveal-direction="up"><a class="brand" href="/#inicio" aria-label="Turnate, inicio">turnate<span></span></a><p>La forma simple de gestionar tus turnos.</p></div>
+    <div data-reveal-item data-reveal-direction="up"><a class="brand" href="/#inicio" aria-label={`${SITE_TITLE}, inicio`}>{SITE_TITLE}<span></span></a><p>La forma simple de gestionar tus turnos.</p></div>
     <nav data-reveal-item data-reveal-direction="fade" class="footer-nav" aria-label="Navegación del pie de página"><a href="/#funciones">Producto</a><a href="/#como-funciona">Cómo funciona</a><a href="/#rubros">Para negocios</a><a href="/#demo">Contacto</a></nav>
-    <small data-reveal-item data-reveal-direction="up">© {new Date().getFullYear()} Turnate.<br />Desarrollado por Agustín Castillo.</small>
+    <small data-reveal-item data-reveal-direction="up">© {new Date().getFullYear()} {SITE_TITLE}.<br />Desarrollado por Agustín Castillo.</small>
   </div>
 </footer>

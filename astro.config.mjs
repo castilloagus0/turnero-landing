@@ -15,7 +15,7 @@ const sitemapIntegration = site && sitemap({
 export default defineConfig({
   ...(site ? { site } : {}),
   integrations: [react(), ...(sitemapIntegration ? [sitemapIntegration] : []), {
-    name: 'turnate-robots',
+    name: 'tymly-robots',
     hooks: {
       'astro:build:done': async ({ dir }) => {
         if (!site) return;

@@ -2,9 +2,9 @@
 import SectionEyebrow from '../ui/SectionEyebrow.astro';
 const faqs = [
   ['¿Puedo sumar a todo mi equipo?', 'Sí. La configuración contempla profesionales, servicios y horarios para organizar la agenda según cómo trabaja tu negocio.'],
-  ['¿Es difícil configurar Turnate?', 'No. La puesta en marcha parte de tu operación actual y está acompañada para que puedas empezar de forma ordenada.'],
+  ['¿Es difícil configurar tymly?', 'No. La puesta en marcha parte de tu operación actual y está acompañada para que puedas empezar de forma ordenada.'],
   ['¿Cómo reservan mis clientes?', 'Compartís tu agenda online y cada cliente puede elegir un servicio y un horario disponible desde su celular.'],
-  ['¿Puedo registrar pagos?', 'Turnate contempla el seguimiento de cobros para que la agenda y el movimiento del negocio estén en una misma vista.'],
+  ['¿Puedo registrar pagos?', 'tymly contempla el seguimiento de cobros para que la agenda y el movimiento del negocio estén en una misma vista.'],
 ];
 ---
 <section class="section faq" id="preguntas"><div class="container faq-layout"><div><SectionEyebrow>Preguntas frecuentes</SectionEyebrow><h2 class="display faq-title">Para decidir con<br/>tranquilidad.</h2></div><div class="faq-list">{faqs.map(([question, answer], index) => <details open={index === 0}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></div></section>
